@@ -13,7 +13,7 @@
 
 ### 24 Sept 2019
 
-*4 hours* Read the project guidance notes
+*4 hours* Read the project guidance notes  
 *0.5 hour* Meeting with supervisor
 
 ### 25 Sept 2019
@@ -22,6 +22,6 @@
 
 ### 26 Sept 2019
 
-*0.5 hour* Uploaded template project to repo
+*0.5 hour* Uploaded template project to repo  
 *0.5 hour* Modified dissertation template
 
