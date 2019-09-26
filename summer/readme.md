@@ -1,17 +1,13 @@
 # Summer work
 
-* PROJECT NAME
-* YOUR NAME
-* STUDENT_ID
-* SUPERVISOR NAME
-
-Use this file to keep a report stating what you completed over the summer. The following is an *template* that you can use as a basis. 
+* Visualisation of Mobile App Usage 
+* Matthew James O'Hare
+* 2255357o
+* Matthew Chalmers
 
 ## Research completed
+Due to having an internship for 10 weeks during the summer as well as holidays, not much research was carried out. A few afternoons were spening doing some introductory reading into force directed graph drawing and the tracking of app usage to fully understand the concepts of the topic however no major ideas/concerns/risks were developed or identified during the summer period.
 
-## Ideas developed
-
-## Concerns or risks identified
 
 
 
