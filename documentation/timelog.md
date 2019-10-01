@@ -34,6 +34,10 @@
 ### 28 Sept 2019
 
 *0.5 hour* Installed Anaconda and Jupyter Notebook  
-*1 hour* Re-read project guidance notes to give me a full undertsanding. Also set up Zotero as a reference manager.
+*1 hour* Re-read project guidance notes to give me a full undertsanding. Also downloaded Zotero (but didn't set up) as a reference manager.
+
+### 1 Oct 2019
+
+*1 hour* Set up Zotero on both pc and laptop. There was some troubleshooting involved to get it to work.
 
 
