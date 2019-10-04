@@ -20,7 +20,7 @@ We finished by speaking about setting up regular meetings which was agreed as ev
 
 * Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
 
-The meeting was moved to 14:00 as requested by Matthew and it was decided that this would be the new weekly meeting time. I started off by asking some quesions of Matthew. 
+The meeting was moved to 14:00 as requested by Matthew and it was decided that this would be the new weekly meeting time. I started off by asking some quesions of Matthew:  
   * Preferred method of communication: email (keep the curreny thread of conversation to make it easier for both parties). It was also decided that Alistair would be cc'd in the email to keep him up to date also
   * Weekly status reports: email to Matthew the night before each meeting (Wednesday night)
   * Repo access: Matthew and Alistair both said they would not mind having repo access.  
