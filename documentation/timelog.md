@@ -48,3 +48,14 @@
 
 *1 hour* Wrote up week 1 status report and planned for meeting with advisor  
 *1 hour* Recommended reading by advisor with notes - A Large-Scale Study of iPhone App Launch Behaviour
+
+### 4 Oct 2019
+
+*0.5 hour* Wrote up meeting mintues
+
+
+
+
+
+
+
