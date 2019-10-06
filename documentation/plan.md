@@ -10,9 +10,9 @@ Week-by-week plan for the whole project.
 ## Winter semester
 
 * **Week 1** Repo creation, modify template project, general reading on the topic and research/install technologies to be used eg, Python, Jupyter.  
-* **Week 2** Read research papers/watch videos on the topics, get comfortable with matplotlib and other data visualisation libraries in Python, evaluate mobile app data.  
-* **Week 3** Start out simple (easy metrics) and use the data with some force directed graph drawing algorithms and get comfortable with what you're working with.  
-* **Week 4**
+* **Week 2** Read research papers/watch videos on the topics, get comfortable with matplotlib and other data visualisation libraries in Python.  
+* **Week 3** More research and spend more time on dissertation. Readings from supervisor and other personal readings on various algorithms. Look at Iain's code from last year for guidance.  
+* **Week 4** Evaluate the data. Start out simple (easy metrics) and use the data with some force directed graph drawing algorithms and get comfortable with what you're working with.  
 * **Week 5**
 * **Week 6**
 * **Week 7**

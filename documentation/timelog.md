@@ -42,16 +42,23 @@
 
 ### 2 Oct 2019
 
-*1 hour* Recommended reading by advisor with notes - A Large-Scale Study of iPhone App Launch Behaviour
+*1 hour* Recommended reading by supervisor with notes - A Large-Scale Study of iPhone App Launch Behaviour  
+*1 hour* Done some python and matplotlib revision
 
 ### 3 Oct 2019
 
-*1 hour* Wrote up week 1 status report and planned for meeting with advisor  
-*1 hour* Recommended reading by advisor with notes - A Large-Scale Study of iPhone App Launch Behaviour
+*1 hour* Wrote up week 1 status report and planned for meeting with supervisor  
+*0.5 hour* Meeting with supervisor  
+*1 hour* Recommended reading by supervisor with notes - A Large-Scale Study of iPhone App Launch Behaviour
 
 ### 4 Oct 2019
 
-*0.5 hour* Wrote up meeting mintues
+*0.5 hour* Wrote up meeting mintues  
+*1 hour* Done some more python and matplotlib revision
+
+### 6 Oct 2019
+
+*0.5 hour* Wrote up some more notes and re-evalauted plan
 
 
 

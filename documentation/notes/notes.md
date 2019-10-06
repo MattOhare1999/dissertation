@@ -21,7 +21,9 @@ Notes made from each reading/paper/article throughout the project
 * "AppTracker regularly uploads user app launch data to our servers, together with a timestamp, device type, device identifier, and timezone".
 * It is in an open question how personally identifiable a user might be from their app launches.
 * Downloaded over 40,000 times as of September 2017 with users supplying 28 million app launch events.
-* Rest of the paper is just evaluating results.
+* Hamming distance is used to calculate how similar users are based on the apps they have and use
+  * The Hamming distance between two strings or equal length is the number of positions at which the corresponding symbols are different.
+* Rest of the paper is just evaluating results. There are a few evaluations eg, app usage by hour of day, characterising app usage sessions, micro-usage, identifying users from app signatures.
 
 
-* References: 9
+* References: 9, 46
