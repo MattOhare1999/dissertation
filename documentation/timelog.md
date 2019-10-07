@@ -60,6 +60,13 @@
 
 *0.5 hour* Wrote up some more notes and re-evalauted plan
 
+### 7 Oct 2019
+
+*1.5 hours* Recommended reading by supervisor with notes - Falling Asleep with Angry Birds, Facebook and Kindle - A Large Scale Study on Mobile Application Usage  
+*1 hour* Recommended reading by supervisor with notes - Differentiating Smartphone Users by App Usage  
+*1.5 hours* Recommended reading by supervisor with notes - Modelling Smartphone Usage: A Markov State Transition Model
+
+
 
 
 
