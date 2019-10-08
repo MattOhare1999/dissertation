@@ -59,7 +59,7 @@ Notes made from each reading/paper/article throughout the project
 * A Markov chain is a mathematical system that experiences transitions from one state to another according to certain probabilistic rules.
 
 
-### Modelling Smartphone Usage: A Markov State Transition Model
+### Modelling Smartphone Usage: A Markov State Transition Model (Paper 4)
 
 * Markov chains have been used for many aspects of mobile computing, from optimising to predicting.
 * Typically used to describe systems that have a set of observable states (phone on, phone off, locked, unlocked) and a transition matrix defines the probabilities of moving between these states.
@@ -71,8 +71,36 @@ Notes made from each reading/paper/article throughout the project
 * Designer's and Knowledge free transition matrices - there is an explanation on both if required.
 
 
+### Spring Embedders and Force Directed Graph Drawing Algorithms
+
+* Force-directed algorithms, also known as spring embedders, are one of the most flexible methods for calculating layouts of undirected graphs. 
+* They calculate the layout of a graph using only the information contained within the structure of the graph itself, rather than relying on domain-specific knowledge.
+* These drawn graphs tend to be aesthetically pleasing, exhibit symmetries and tend to produce crossing-free layouts for planar graphs.
+* Traditional spring layout methods rely on spring forces. There are repulsive forces between all nodes (based on Coulomb's Law), but also attractive forces between nodes which are adjacent (based on Hooke's Law).
+  * The nodes are then moved according to the net force acting upon them.
+* In general, force-directed methods define an objective function which maps each graph layout into a number in R+ representing the energy of the layout.
+  * This function is defined so that low energies correspond to layouts which adjacent nodes are near some pre-defined distance from each other, and in which non-adjacent nodes are well-spaced.
+  * A layout of this graph is then calculated by finding a (often local) minimum of this objective function (gradient descent).
+
+* Decent source had a few algorithms on it and could be worth a re-read at some point
 
 
+### PyData Ann Arbor: Leland McInnes | PCA, t-SNE, and UMAP: Modern Approaches to Dimension Reduction - YouTube Video
+
+* Feature engineering - Find core features in your data.
+* 2 ways of dimension reduction - Matrix Factorization, Neighbour Graphs
+
+* Matrix Factorization - needs lots of different algorithms, eg, Principal Component Analysis (PCA), Latent Dirichlet Allocation, even Word2Vec
+
+* Neighbour Graphs - there are also lots of algorithms, what graph is being constructed? how are you going to weight the edges? etc. This can lead to different algorithms being used eg, t-SNE, UMAP, Laplacian Eigenmaps etc
+
+* PCA
+  * The old workhouse of dimension reduction, been around for a long time although relevant
+  * One can view it as trying to find a way to recontrsuct the data as a linear combination of a small number of prototypes.
+  * Whole point is to attempt to reduce/minimise this reconstruction error (how close is this linear combination of prototypes to the original data) (Figure 1)
+* We can reduce from very high dimensions and still keep a lot of information from the data (overall structure etc)
+
+* t-Distributed Stochastic Neighbour Embedding (t-SNE)
 
 
 

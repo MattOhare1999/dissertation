@@ -66,6 +66,10 @@
 *1 hour* Recommended reading by supervisor with notes - Differentiating Smartphone Users by App Usage  
 *1.5 hours* Recommended reading by supervisor with notes - Modelling Smartphone Usage: A Markov State Transition Model
 
+### 8 Oct 2019
+
+*1 hour* Reading - Spring Embedders and Force Directed Graph Drawing Algorithms
+*0.5 hour* Watched some of video while taking notes - PyData Ann Arbor: Leland McInnes | PCA, t-SNE, and UMAP: Modern Approaches to Dimension Reduction
 
 
 
