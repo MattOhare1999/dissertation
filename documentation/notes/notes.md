@@ -101,6 +101,44 @@ Notes made from each reading/paper/article throughout the project
 * We can reduce from very high dimensions and still keep a lot of information from the data (overall structure etc)
 
 * t-Distributed Stochastic Neighbour Embedding (t-SNE)
+  * Usually explained in terms of probabilities but will explain it in a different way
+  * Can be seen best as a graph based algorithm instead
+  * Create a directed graph with vertices gievn by data points. Weight the edges using an RBF kernal (smaller weights are applied to points further away from each other etc). Then normalise weights at each vertex so that the total outgoing weight is 1 (evens things out). Then convert to an undirected graph by averaging the weights between each pair of vertices. Then normalise all the weights so that the total weight of the graph is one.
+  * Now, suppose we had a proposed low dimensional representation, we can use a similar process as above to build a weighted graph in low dimensional space, with a few differences:
+  * t-distribution kernal (not RBF), fixed bandwith and undirected from the start.
+  * Equation on video, didnt think was necessary
+  * This results in an attractive force (when the weight in high dimension edges are large) and a repulsive force (university on the points) = force directed graph layout
+  * This focuses on local structure as a pose to global structure in PCA
+
+* Uniform Manifold Approximation and Projection (UMAP)
+  * Builds mathematical theory to justify the graph based approach
+  * Using simplicies and joining them together we can create something that is a topological space (Figure 2). This can be done with data points in a graph, ie, create simplicies of points that are close together etc (Figure 3). This should capture the information of the topology.
+  * If the data is uniformly distributed on the manifold then the cover will be "good"
+  * We assume the data is uniformly distributed however in order to do this we must define a Riemannian metric on the manifold to make this assumption true (define a notion of distance that varys from point to point as we move across the data).
+  * We also move to a fuzzy cover (circles around each point that fade when reaching the nearest neighbour, can be converted to lines of different weights to signigy distance).
+  * Under a probabilistic fuzzy union the combination of weights on edges is given by f(a,b) = a+b - a.b
+  * This captures the local structure as well as the global structure of the data.
+
+* Implementing UMAP
+  * Need to find (approximate) nearest neighbours very efficiently, even in high dimensional space. Can use RP-trees and NN-descent.
+  * Need to optimize the layout subquadratically. Can use Stochastic Gradient Descent (SGD) and negative sampling.
+  * Need to be high level but still fast. Can use Python and Numba (numba.njit at top of function)
+  * UMAP is far faster than t-SNE, gets faster in comparison to t-SNE the more data you have.
+  * Can use UMAP for pandas dataframes - as long as tell UMAP how to measure distance for each of those different datatype columns.
+  * UMAP is linear in cost for embedding dimensions
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
 

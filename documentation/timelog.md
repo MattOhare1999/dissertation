@@ -68,8 +68,14 @@
 
 ### 8 Oct 2019
 
-*1 hour* Reading - Spring Embedders and Force Directed Graph Drawing Algorithms
+*1 hour* Reading - Spring Embedders and Force Directed Graph Drawing Algorithms  
 *0.5 hour* Watched some of video while taking notes - PyData Ann Arbor: Leland McInnes | PCA, t-SNE, and UMAP: Modern Approaches to Dimension Reduction
+
+### 9 Oct 2019
+
+*2 hours* Watched more of video while taking notes - PyData Ann Arbor: Leland McInnes | PCA, t-SNE, and UMAP: Modern Approaches to Dimension Reduction  
+*1 hour* Looked at Iain Cattermole's code and ran it various algorithms with different paramaters
+
 
 
 
