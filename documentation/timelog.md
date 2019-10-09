@@ -74,7 +74,8 @@
 ### 9 Oct 2019
 
 *2 hours* Watched more of video while taking notes - PyData Ann Arbor: Leland McInnes | PCA, t-SNE, and UMAP: Modern Approaches to Dimension Reduction  
-*1 hour* Looked at Iain Cattermole's code and ran it various algorithms with different paramaters
+*1 hour* Looked at Iain Cattermole's code and ran the various algorithms with different paramaters  
+*0.5 hour* Wrote up week 2 status report
 
 
 
