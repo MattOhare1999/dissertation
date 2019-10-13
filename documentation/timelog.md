@@ -77,7 +77,16 @@
 *1 hour* Looked at Iain Cattermole's code and ran the various algorithms with different paramaters  
 *0.5 hour* Wrote up week 2 status report
 
+### 10 Oct 2019 
 
+*0.5 hour* Planned for meeting with supervisor
+*0.5 hour* Meeting with supervisor
+
+### 11 Oct 2019
+
+*1 hour* Wrote up meeting minutes and plan for the week, emailed Alistair about App Usage Data
+*0.5 hour* Watched video - UMAP Uniform Manifold Approximation and Projection for Dimension Reduction | SciPy 2018 |
+*0.5 hour* Watched video - A Bluffer's Guide to Dimension Reduction - Leland McInnes
 
 
 

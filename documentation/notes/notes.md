@@ -17,7 +17,7 @@ Notes made from each reading/paper/article throughout the project
 * Results from these studies change quickly due to fast paced field so how often must they be updated/re-published to be kept up to date?/Would this be accepted without any new data/user groups?/Is this classed as HCI or more research and analytics?
 * AWARE
 * Using user data from jailbroken iPhones may raise questions about how representative the data actually is of iOS users.
-* Data was collected via AppTracker consisting of a "backgroud logging framework that captures information on device use, and a foreground UI that displays charts and statistics on app use durations. It records timestamped logs of every time an app is opened or closed on the device. It also tracks every time the device is locked or unlocked... No information is recorded on activity withing individual apps, or activity over networks."
+* Data was collected via AppTracker consisting of a "backgroud logging framework that captures information on device use, and a foreground UI that displays charts and statistics on app use durations. It records timestamped logs of every time an app is opened or closed on the device. It also tracks every time the device is locked or unlocked... No informat ion is recorded on activity withing individual apps, or activity over networks."
 * "AppTracker regularly uploads user app launch data to our servers, together with a timestamp, device type, device identifier, and timezone".
 * It is in an open question how personally identifiable a user might be from their app launches.
 * Downloaded over 40,000 times as of September 2017 with users supplying 28 million app launch events.
@@ -116,6 +116,7 @@ Notes made from each reading/paper/article throughout the project
   * If the data is uniformly distributed on the manifold then the cover will be "good"
   * We assume the data is uniformly distributed however in order to do this we must define a Riemannian metric on the manifold to make this assumption true (define a notion of distance that varys from point to point as we move across the data).
   * We also move to a fuzzy cover (circles around each point that fade when reaching the nearest neighbour, can be converted to lines of different weights to signigy distance).
+  * We also must assume that the manifold is locally connected (ie, all points join to each other)
   * Under a probabilistic fuzzy union the combination of weights on edges is given by f(a,b) = a+b - a.b
   * This captures the local structure as well as the global structure of the data.
 
@@ -126,6 +127,8 @@ Notes made from each reading/paper/article throughout the project
   * UMAP is far faster than t-SNE, gets faster in comparison to t-SNE the more data you have.
   * Can use UMAP for pandas dataframes - as long as tell UMAP how to measure distance for each of those different datatype columns.
   * UMAP is linear in cost for embedding dimensions
+  * Can also make use of labels for supervised dimension reduction
+
 
 
   
