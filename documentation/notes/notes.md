@@ -130,8 +130,33 @@ Notes made from each reading/paper/article throughout the project
   * Can also make use of labels for supervised dimension reduction
 
 
+### UCI Machine Learning Repository
 
-  
+* Poker data set is there, I believe it was generated (as there is stats for how many of each hand and notes that some hands have been over sampled and "not representative of the true domain") however the generated ones might have been based on them in terms of probability etc.
+* The Iris data set is also here.
+* https://archive.ics.uci.edu/ml/datasets/UbiqLog+(smartphone+lifelogging) - app usage data set
+  * Has 9782222 instances, in JSON format but there is code for converting it to CSV (would have to email the given email address).
+  * It has collected calls, SMS headers, app use, WiFi & bluetooth devices in user's proximity, geographical location (if available and GPS works), physical activites from Google play API.
+  * The only note is "This dataset is not for any privacy related analysis that can re-identify users" but we are not planning on that anyway.
+  * However data is only from 35 users over two months on android.
+
+
+### Dimensionality reduction for visualising single-cell data using UMAP
+
+* t-SNE suffers from limitations such as loss of large-scale information (the intercluster of relationships), slow commputation time and the inability to meaningfully represent very large datasets.
+* t-SNE expands low density areas and tends to ignore global relationships
+* FIt-SNE (Fourier Interpolation t-SNE) - uses a late-exagerration parameter that magnifies gaps between distinct clusters. Runs slightly faster than UMAP (with over 100,000 data points) however does not show global distances between clusters quite as well.
+* UMAP is the most all-round robust method for dimensionality reduction.
+
+### AWARE: mobile context instrumentation framework
+
+* Open platform for context-aware mobile computing research, application development, and for the end-user. 
+* Allows creating new mobile research tools for data mining, visualisation, and analysis that builds on previous development
+* It has the potential to enable access to the wider range of interrelated sources of context information and their relationships, including the user's individual and social behaviour.
+* Regular android application - the collected data is primarily stored locally on the device and is not shared remotely. For distributed and large-scale studies, the client uploads sensor and plugin data to the cloud.
+* There is a summary of what is provides (page 5) for researchers, developers and users however too long to write here.
+
+### Non-Euclidean Spring Embedders (maybe)
 
 
 

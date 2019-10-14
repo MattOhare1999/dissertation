@@ -79,14 +79,20 @@
 
 ### 10 Oct 2019 
 
-*0.5 hour* Planned for meeting with supervisor
+*0.5 hour* Planned for meeting with supervisor  
 *0.5 hour* Meeting with supervisor
 
 ### 11 Oct 2019
 
-*1 hour* Wrote up meeting minutes and plan for the week, emailed Alistair about App Usage Data
-*0.5 hour* Watched video - UMAP Uniform Manifold Approximation and Projection for Dimension Reduction | SciPy 2018 |
+*1 hour* Wrote up meeting minutes and plan for the week, emailed Alistair about App Usage Data  
+*0.5 hour* Watched video - UMAP Uniform Manifold Approximation and Projection for Dimension Reduction | SciPy 2018 |  
 *0.5 hour* Watched video - A Bluffer's Guide to Dimension Reduction - Leland McInnes
+
+### 14 Oct 2019
+
+*0.5 hour* Looked at UCI Machine Learning Repository to find datasets  
+*0.5 hour* Reading - Dimensionality reduction for visualising single-cell data using UMAP  
+*1 hour* Reading - AWARE: mobile context instrumentation framework  
 
 
 
