@@ -148,6 +148,7 @@ Notes made from each reading/paper/article throughout the project
 * FIt-SNE (Fourier Interpolation t-SNE) - uses a late-exagerration parameter that magnifies gaps between distinct clusters. Runs slightly faster than UMAP (with over 100,000 data points) however does not show global distances between clusters quite as well.
 * UMAP is the most all-round robust method for dimensionality reduction.
 
+
 ### AWARE: mobile context instrumentation framework
 
 * Open platform for context-aware mobile computing research, application development, and for the end-user. 
@@ -156,7 +157,23 @@ Notes made from each reading/paper/article throughout the project
 * Regular android application - the collected data is primarily stored locally on the device and is not shared remotely. For distributed and large-scale studies, the client uploads sensor and plugin data to the cloud.
 * There is a summary of what is provides (page 5) for researchers, developers and users however too long to write here.
 
-### Non-Euclidean Spring Embedders (maybe)
+
+### Non-Euclidean Spring Embedders
+
+* Force-directed algorithms, also known as spring embedders
+* Most algorithms are restricted to calculating a graph layout in Euclidean geometry (n-dimension Euclidean space), typically R^2, R^3 and more recently R^n for larger values of n, however this is not always the best option as certain graphs may have a structure which would be best realised in a different geometry eg, hyperbolic or spherical space.
+* A way to overcome this is to represent a graph layout in Riemannian geometry.
+  * There is an explanation of this however not sure if necessary for my project.
+* Euclidean space has a very conveinent structure, it is easy to define distances and angles, and the relationship between the vector representing the net force on an object and the appropriate motion of that object is quite straightforward.
+* In Euclidean space, the relationship between a pair of nodes is defined along lines: the distance between the two nodes is the length of the line segment between them and forces between the two nodes act along the line through them.
+
+
+
+
+
+
+
+
 
 
 

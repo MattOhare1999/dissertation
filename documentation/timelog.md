@@ -94,6 +94,10 @@
 *0.5 hour* Reading - Dimensionality reduction for visualising single-cell data using UMAP  
 *1 hour* Reading - AWARE: mobile context instrumentation framework  
 
+### 15 Oct 2019
+
+*1 hour* Reading - Non-Euclidean Spring Embedders  
+
 
 
 
