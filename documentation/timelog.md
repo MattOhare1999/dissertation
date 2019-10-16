@@ -98,6 +98,9 @@
 
 *1 hour* Reading - Non-Euclidean Spring Embedders  
 
+### 16 Oct 2019
+
+*0.5 hour* Wrote up week 3 status report
 
 
 
