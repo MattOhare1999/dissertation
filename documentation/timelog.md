@@ -104,16 +104,29 @@
 
 ### 17 Oct 2019
 
-*0.5 hour* Planned for meeting with supervisor
+*0.5 hour* Planned for meeting with supervisor  
 *0.5 hour* Meeting with supervisor
 
 ### 18 Oct 2019
 
-*0.5 hour* Wrote up meeting minutes
+*0.5 hour* Wrote up meeting minutes  
+*1 hour* Python and matplotlib revision
+
+### 19 Oct 2019
+
+*2 hours* Python revision
+
+### 22 Oct 2019
+
+*0.5 hour* Had a further look at Iain's code from last year to find incorrect metric - no progress
 
 ### 23 Oct 2019
 
-*0.5 hour* Trying to find Welke et al paper data set
+***0.5 hour*** Looked for the Welke et al paper data set - not found  
+***0.5 hour*** Looked for the Carat data set - found  
+***1 hour*** Wrote up week 4 status report and updated timelog
+
+
 
 
 
