@@ -40,6 +40,36 @@ At the start of the meeting I asked Matthew if he received my status report from
 We then spoke about a plan when I have received the data. Matthew suggested that I look at each attribute and plot them on a graph, evaluate the shape etc and use metrics like mean, min, max, range etc to understand what the data is showing. I may potentially get a hypothesis to prove or come up with new metrics when evaluating the data. He said that the distribution of app frequencies will not be uniform and to expect this. Matthew gave me things to watch out for like null values or error values in the data. We then spoke about what metrics to use for comparing items (items = a persons usage, individual apps etc) eg, hamming distance of the set of apps each user has installed. Matthew suggested I look at the metrics from the papers referenced in his paper. This could potentially lead to a comparison between previous studies when writng my dissertation. To finish, we spoke about being methodical when doing this project however it is one thing doing it, the main point is I must show how I was methodical when writing my disseratation and explain what I did, this will help a lot.
 
 
+## Meeting 4 - 17 October 2019, 14:00-14:30
+
+* Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
+
+Following on from last week, we started the meeting by me explaining the work I had done in a little more detail. I explained how the majority of reading was done on UMAP and Matthew stated that although a UMAP project would be good, it would be easier to get help from both Matthew and Alistair if the project was based on spring models, however this can be decided once the data has been obtained and evaluated. I also explained how I had found a potential other data set that could be used further down the line. Matthew also mentioned another potential data set - Carat. Although Alistair then found this data set online and found it to be not of much use, nonetheless I agreed to find it myself and have a look at it. It was mentioned that this could potentially be compared to the AppTracker data in future. Matthew also suggested I try find the data set from the Welke paper as that could be useful also. We also spoke about Iain's code once again and decided that next week we might have a look at it and try to fix a potential error in the metric part. I said I will have a look at this also this coming week. For the remainder of the meeting we tried to debug a problem that Alistair was having with connecting to the data set on Matthew's machine.
+
+We finished by recapping the plan for the week. While Alistair is anoymising the data set, I will have a look for the data set from the Welke paper and the Carat data set. I will also have a further look at Iain's code to try find the bug before next week.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

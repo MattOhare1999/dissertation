@@ -102,6 +102,19 @@
 
 *0.5 hour* Wrote up week 3 status report
 
+### 17 Oct 2019
+
+*0.5 hour* Planned for meeting with supervisor
+*0.5 hour* Meeting with supervisor
+
+### 18 Oct 2019
+
+*0.5 hour* Wrote up meeting minutes
+
+### 23 Oct 2019
+
+*0.5 hour* Trying to find Welke et al paper data set
+
 
 
 
