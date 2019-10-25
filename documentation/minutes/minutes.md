@@ -49,6 +49,15 @@ Following on from last week, we started the meeting by me explaining the work I 
 We finished by recapping the plan for the week. While Alistair is anoymising the data set, I will have a look for the data set from the Welke paper and the Carat data set. I will also have a further look at Iain's code to try find the bug before next week.
 
 
+## Meeting 5 - 24 October 2019, 14:00-14:20
+
+* Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
+
+A shorter meeting than usual since there was less to talk out. I began by going over my weekly status report and then asked Alistair how he was getting on with the app usage data as I cannot make much more progress without it. He said he now has access to it so will hopefully have it to me by the start of next week. We then spoke further about other potential data sets that I could look at. Matthew said he will message the team behind the "Differentiating Smartphone Users by App Usage" (Welke et al.) paper and see if they would send a portion of data to analyse. Matthew also mentioned another data set that they have used before (bond?) that could potentially be found and used, he said he would have a look for it.
+
+I then mentioned how I have still not found the error in Iain's code from last year. Matthew suggested I try running it with different data sets that we know the output to, for example, MNIST fashion or MNIST digits. I agreed to do this and Alistair suggested I bring my laptop with all the outputs to the next meeting and we will debug together if I have no luck.
+
+
 
 
 
