@@ -135,6 +135,15 @@
 
 *0.5 hour* - Wrote up meeting minutes
 
+## 26 Oct 2019
+
+*2 hours* - More python and matplotlib work
+
+## 30 Oct 2019
+
+*1 hour* - Used Iain's code with mnist digits dataset - some progress
+*1 hour* - Wrote up week 5 status report and timelog
+
 
 
 
