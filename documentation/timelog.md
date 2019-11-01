@@ -141,8 +141,29 @@
 
 ## 30 Oct 2019
 
-*1 hour* - Used Iain's code with mnist digits dataset - some progress
+*1 hour* - Evaluated Iain's code and used it with mnist digits dataset - some progress
 *1 hour* - Wrote up week 5 status report and timelog
+
+## 31 Oct 2019
+
+*0.5 hour* - Planned for meeting with supervisor
+*0.5 hour* - Meeting with supervisor
+
+## 1 Nov 2019
+
+*0.5 hour* - Wrote up meeting minutes
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
