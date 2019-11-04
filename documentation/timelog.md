@@ -152,6 +152,7 @@
 ## 1 Nov 2019
 
 *0.5 hour* - Wrote up meeting minutes
+*1 hour* - Started evaluating data and some pandas research
 
 
 
