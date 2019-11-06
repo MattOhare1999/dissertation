@@ -14,8 +14,8 @@ Week-by-week plan for the whole project.
 * **Week 3** More research and spend more time on dissertation. Readings from supervisor and other personal readings on various algorithms. Look at Iain's code from last year for guidance.  
 * **Week 4** Look for potential other data sets and further research.  
 * **Week 5** Evaluate Iain's code in depth and use with other data sets.  
-* **Week 6 - 28th Oct** Evaluate the AppTracker data. Start out simple (easy graphs/charts etc) and get comfortable with what you're working with.  
-* **Week 7**
+* **Week 6** Evaluate the AppTracker data. Start out simple (easy graphs/charts etc) and get comfortable with what you're working with.  
+* **Week 7 - 4th Nov** Continute with data evaluating and processing.  
 * **Week 8**
 * **Week 9**
 * **Week 10**
