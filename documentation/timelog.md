@@ -141,19 +141,31 @@
 
 ## 30 Oct 2019
 
-*1 hour* - Evaluated Iain's code and used it with mnist digits dataset - some progress
+*1 hour* - Evaluated Iain's code and used it with mnist digits dataset - some progress  
 *1 hour* - Wrote up week 5 status report and timelog
 
 ## 31 Oct 2019
 
-*0.5 hour* - Planned for meeting with supervisor
+*0.5 hour* - Planned for meeting with supervisor  
 *0.5 hour* - Meeting with supervisor
 
 ## 1 Nov 2019
 
-*0.5 hour* - Wrote up meeting minutes
+*0.5 hour* - Wrote up meeting minutes  
 *1 hour* - Started evaluating data and some pandas research
 
+## 5 Nov 2019
+
+*6 hours* - Evaluated and began processing of data set
+
+## 6 Nov 2019
+
+*2 hours* - More processing of data - making good progress  
+*1 hour* - Wrote up week 6 status report, updated plan and timelog
+
+## 7 Nov 2019
+
+*2 hours* - More processing of data and made notes of my results
 
 
 
