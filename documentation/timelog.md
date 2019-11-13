@@ -167,6 +167,9 @@
 
 *2 hours* - More processing of data and made notes of my results
 
+## 13 Nov 2019
+
+*3 hours* - Tidied code, creating functions to make it more readable
 
 
 
