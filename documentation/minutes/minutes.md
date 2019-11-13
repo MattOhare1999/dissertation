@@ -67,6 +67,10 @@ This meeting started on a positive note with Alistair stating that he had just a
 We then moved on to talking about the data when it was used in Matthew and Alistair's paper where they said that due to large range in the length of time users had the app downloaded (from hours to years), they made the decision to chop off the top and bottom 1% to clean up the data (look in paper for exact details). This could be something I may look at doing depending on results when I come to evaluate the data. To finish, Matthew suggested I break everything down and make a plan of action and we agreed that by next week I will come back to them with everything I have found out about the data once evaluation is complete.
 
 
+## Meeting 7 - 7th November, Cancelled by Matthew due to prior commitments
+
+
+## Meeting 8 - 14 November
 
 
 

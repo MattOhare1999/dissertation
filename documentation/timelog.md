@@ -170,7 +170,7 @@
 ## 13 Nov 2019
 
 *3 hours* - Tidied code, creating functions to make it more readable
-
+*1 hour* - Wrote up week 7 status report and updated minutes and plan
 
 
 
