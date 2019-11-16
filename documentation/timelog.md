@@ -172,6 +172,14 @@
 *3 hours* - Tidied code, creating functions to make it more readable
 *1 hour* - Wrote up week 7 status report and updated minutes and plan
 
+## 14 Nov 2019
+
+*0.5 hour* - Planned for meeting with supervisor
+*0.5 hour* - Meeting with supervisor
+
+## 15 Nov 2019
+
+*0.5 hour* - Wrote up meeting minutes
 
 
 

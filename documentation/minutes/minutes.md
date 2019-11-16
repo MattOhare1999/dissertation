@@ -72,6 +72,13 @@ We then moved on to talking about the data when it was used in Matthew and Alist
 
 ## Meeting 8 - 14 November
 
+* Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
+
+I started the meeting by outlining my results from my data evaluation. I spoke about my graphs and how sparse the data was when Matthew suggested looking at something like Zipf's Law to maybe make the graphs easier to view. We spoke further about analysis and to make the results more meaninfgul. Matthew suggested I could use the top 100 apps for comparing distances (since every user should have hopefully used one of these) or top 300 or top 500 (like a sliding window) and compare the results to find the optimal parameters. I said I will look at the Welke et al paper and find out the parameters they used in their study.
+
+I then asked Alistair about what he thought the top app would be in this data and he suggested spring board. He then went on to showing me the new data he had been working on where more columns were added to improve evaluation and analysis. Some extra columns were Apple v Non-Apple apps, category ID and the amount of time in seconds that we had seen the user (from the first bit of data to the last) so this will be helpful.
+
+To finish, Matthew suggested I develop my idea for the project in terms of what I will do with the data.
 
 
 
