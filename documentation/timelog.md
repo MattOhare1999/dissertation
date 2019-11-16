@@ -180,7 +180,11 @@
 ## 15 Nov 2019
 
 *0.5 hour* - Wrote up meeting minutes
+*1 hour* - Looked at calculating hamming distance between each row - some progress
 
+## 16 Nov 2019
+
+*3 hours* - Continued at looking at calculating hamming distance between each row - done
 
 
 
