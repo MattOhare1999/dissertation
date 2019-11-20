@@ -15,9 +15,9 @@ Week-by-week plan for the whole project.
 * **Week 4** Look for potential other data sets and further research.  
 * **Week 5** Evaluate Iain's code in depth and use with other data sets.  
 * **Week 6** Evaluate the AppTracker data. Start out simple (easy graphs/charts etc) and get comfortable with what you're working with.  
-* **Week 7** Continute with data evaluating and processing.  
-* **Week 8 - 11th Nov** Continute with data evaluating and processing. Attempt to calculate differences between data points.  
-* **Week 9**
+* **Week 7** Continue with data evaluating and processing.  
+* **Week 8** Continue with data evaluating and processing. Attempt to calculate distances between data points.  
+* **Week 9 - 18th Nov** Filter out users using new data to get valuable dataset for visualising.
 * **Week 10**
 * **Week 11 [PROJECT WEEK]**
 * **Week 12 [PROJECT WEEK]** Status report submitted.

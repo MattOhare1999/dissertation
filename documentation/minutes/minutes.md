@@ -70,7 +70,7 @@ We then moved on to talking about the data when it was used in Matthew and Alist
 ## Meeting 7 - 7th November, Cancelled by Matthew due to prior commitments
 
 
-## Meeting 8 - 14 November
+## Meeting 8 - 14 November 2019, 14:00-14:30
 
 * Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
 
@@ -80,6 +80,8 @@ I then asked Alistair about what he thought the top app would be in this data an
 
 To finish, Matthew suggested I develop my idea for the project in terms of what I will do with the data.
 
+
+## Meeting 9 - 21 November 2019, 14:00-14:30
 
 
 
