@@ -191,7 +191,21 @@
 *3 hours* - Analysis and evaluation of new data  
 *1 hour* - Wrote up week 8 status report and updated plan and timelog
 
+## 21 Nov 2019
 
+*0.5 hour* - Planned meeting with supervisor  
+*0.5 hour* - Meeting with supervisor  
+*1 hour* - Looked at hamming distance and heat map issue
+
+## 26 Nov 2019
+
+*0.5 hour* - Wrote up meeting minutes
+*1 hour* - Fixed hamming distance and heat map issue 
+
+## 27 Nov 2019
+
+*2 hour* - Began looking at filtering users by the duration we seen them and updated notes.  
+*0.5 hour* - Wrote up week 9 status report
 
 
 

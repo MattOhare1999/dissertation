@@ -83,6 +83,11 @@ To finish, Matthew suggested I develop my idea for the project in terms of what 
 
 ## Meeting 9 - 21 November 2019, 14:00-14:30
 
+* Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
+
+I began by showing my work from last week. There was confusion about the heatmap that I showed them and whether it was correct. We spoke about potential solutions to debug - make sure that the screen only shows one entry per pixel as there was a concern that it was grouping together multiple in a pixel. However Matthew said that this would be good content for the diss by explaining the problem and how I overcame it. I also had a question about a missing genre category which Alistair answered. ID 6021 is newstand. Furthermore, having discovered that the most used application was AppTracker, it may be necessary to exclude this from the results since this app was required however currently unsure what difference it would make. When talking about the filtering of users, I asked if there was a specific number that be a "good" amount but both Matthew and Alistair said no, they stated that there is not 1 perfect algorithm or dataset or metric for this, it is a case of trial and error and choosing the best fit and justifying my decision. There is also the potential to move into the machine learning area, for example, clustering to understand the data further.
+
+The majority of the remainder of the meeting was about the dissertation. Matthew mentioned that for the diss, we want to create a kind of road map of how to do this data analysis so that in future it could be done with another dataset using the same guidelines. Also the most important thing is about showing reasoned judgements as to why I did things (eg, chose certain parameters etc).
 
 
 
