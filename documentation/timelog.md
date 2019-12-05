@@ -207,6 +207,20 @@
 *2 hour* - Began looking at filtering users by the duration we seen them and updated notes.  
 *0.5 hour* - Wrote up week 9 status report
 
+## 28 Nov 2019
+
+*0.5 hour* - Planned meeting with supervisor  
+*0.5 hour* - Meeting with supervisor  
+
+## 02 Dec 2019
+
+*0.5 hour* - Wrote up meeting minutes  
+*5 hours* - Re-done data evaluation to take into account duration seen and number of launches
+
+## 04 Dec 2019
+
+*0.5 hour* - Wrote up week 10 status report
+
 
 
 

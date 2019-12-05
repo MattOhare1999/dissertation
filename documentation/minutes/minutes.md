@@ -90,6 +90,15 @@ I began by showing my work from last week. There was confusion about the heatmap
 The majority of the remainder of the meeting was about the dissertation. Matthew mentioned that for the diss, we want to create a kind of road map of how to do this data analysis so that in future it could be done with another dataset using the same guidelines. Also the most important thing is about showing reasoned judgements as to why I did things (eg, chose certain parameters etc).
 
 
+## Meeting 10 - 28 November 2019, 14:00-14:30
+
+* Present - Matthew James O'Hare. Professor Matthew Chalmers, Dr Alistair Morrison
+
+I began by showing my work from last week. I explained the issue with the heatmap and showed the corrected version. From this we spoke about different metrics, at the moment the hamming distance shows more differences than similarities and takes into account all differences between users. It was suggested that I maybe look at other metrics, like the scaler product or give weights to similar values. An example of this would be to take into account the number of launches of an app by a user and then representing the distance as a function of the average usage of that app. 
+
+I also stated that I have a lot of coursework at the moment so progress this week might be a bit slow as I prioritise other work but will do what I can.
+
+
 
 
 

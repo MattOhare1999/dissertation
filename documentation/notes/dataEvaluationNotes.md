@@ -45,7 +45,9 @@ These are notes made from my evaluation of the App Tracker data set.
 * Below that there is 1 app that has id '6021' assigned to it. This is newstand.  
 
 * There are 2053 users that were only seen for less than 5 minutes (300 seconds).  
-* There are 4600 users that were only seen for less than 1 day (86400 seconds).
+* There are 4600 users that were only seen for less than 1 day (86400 seconds).  
+
+* There are some users that are anomalies, for example: user id 5 has been seen for around 50 days but has only used 7 apps with a total of 22 launches in that time. 
 
 
 

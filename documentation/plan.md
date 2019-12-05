@@ -17,10 +17,10 @@ Week-by-week plan for the whole project.
 * **Week 6** Evaluate the AppTracker data. Start out simple (easy graphs/charts etc) and get comfortable with what you're working with.  
 * **Week 7** Continue with data evaluating and processing.  
 * **Week 8** Continue with data evaluating and processing. Attempt to calculate distances between data points.  
-* **Week 9 - 18th Nov** Filter out users using new data to get valuable dataset for visualising.
-* **Week 10**
-* **Week 11 [PROJECT WEEK]**
-* **Week 12 [PROJECT WEEK]** Status report submitted.
+* **Week 9** Filter out users using new data to get valuable dataset for visualising.
+* **Week 10 - 25th Nov** Continue to filter out users (busy week due to coursework deadlines)
+* **Week 11 [PROJECT WEEK]** Full time dissertation work. Aim to have a good comparison of distance metrics with different data sets (ie, different filtered users)
+* **Week 12 [PROJECT WEEK]** Status report submitted. Also attempt to create spring models using the data and metrics evaluated the week before.
 
 ## Winter break
 
