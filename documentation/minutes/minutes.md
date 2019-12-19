@@ -99,6 +99,11 @@ I began by showing my work from last week. I explained the issue with the heatma
 I also stated that I have a lot of coursework at the moment so progress this week might be a bit slow as I prioritise other work but will do what I can.
 
 
+## Meeting 11 - 05 December 2019, 14:00-14:30
+
+
+## Meeting 12 - 12 December 2019, 14:00-14:30
+
 
 
 

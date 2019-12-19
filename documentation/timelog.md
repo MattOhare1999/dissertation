@@ -221,6 +221,29 @@
 
 *0.5 hour* - Wrote up week 10 status report
 
+## 05 Dec 2019
+
+*0.5 hour* - Planned meeting with supervisor  
+*0.5 hour* - Meeting with supervisor  
+
+## 10 Dec 2019
+
+*2 hours* - Level 4 Project Training (Lecture by John Williamson)
+
+## 12 Dec 2019
+
+*0.5 hour* - Planned meeting with supervisor  
+*0.5 hour* - Meeting with supervisor  
+
+## 16 Dec 2019
+
+*2 hours* - Re-read project training notes to give me a better understanding
+
+## 18 Dec 2019
+
+*1 hour* - Cleaned up repo and brought notes/timelog/plan/minutes up to date  
+*1 hour* - Wrote up semester 1 status report
+
 
 
 
