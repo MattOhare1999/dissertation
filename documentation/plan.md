@@ -26,15 +26,16 @@ Week-by-week plan for the whole project.
 
 ## Spring Semester
 
-* **Week 13**
-* **Week 14**
-* **Week 15**
-* **Week 16**
-* **Week 17**
-* **Week 19**
-* **Week 20**
-* **Week 21**
-* **Week 22**
-* **Week 23 [TERM ENDS]**
+* **Week 13 - 06th Jan** Decide on the most appropriate metric.  
+* **Week 14** Use this metric with different spring model algorithms.  
+* **Week 15** Decide on the most appropriate spring model algorithm.  
+* **Week 16** Analysis and evaluation of the created visualisation.  
+* **Week 17** Analysis and evaluation of the created visualisation.  
+* **Week 18** Use detailed process with another data set.  
+* **Week 19** Begin write up of dissertation - Introduction.  
+* **Week 20** Continue write up of dissertation - Background.  
+* **Week 21** Continue write up of dissertation - Analysis/Requirements, Design.  
+* **Week 22** Continue write up of dissertation - Implementation.  
+* **Week 23 [TERM ENDS]** Continue write up of dissertation - Evaluation, Conclusion.  
 * **Week 24** Dissertation submission deadline and presentations.
 

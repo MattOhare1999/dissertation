@@ -226,9 +226,18 @@
 *0.5 hour* - Planned meeting with supervisor  
 *0.5 hour* - Meeting with supervisor  
 
+## 06 Dec 2019
+
+*0.5 hour* - Wrote up meeting minutes
+
 ## 10 Dec 2019
 
 *2 hours* - Level 4 Project Training (Lecture by John Williamson)
+
+## 11 Dec 2019
+
+**Exam**  
+*0.5 hour* - Wrote up week 11 status report
 
 ## 12 Dec 2019
 
@@ -239,10 +248,26 @@
 
 *2 hours* - Re-read project training notes to give me a better understanding
 
+## 17 Dec 2019
+
+*3 hour* - Spent time comparing the theory of different similarity metrics to find the best one to use. Practical comparisons will follow.
+
 ## 18 Dec 2019
 
-*1 hour* - Cleaned up repo and brought notes/timelog/plan/minutes up to date  
-*1 hour* - Wrote up semester 1 status report
+*2 hours* - Cleaned up repo and brought notes/timelog/plan/minutes up to date  
+*1 hour* - Began write up of semester 1 status report
+
+## 20 Dec 2019
+
+*1 hour* - Completed semester 1 status report and submitted
+
+## Christmas Break
+
+## 07 Jan 2020
+
+*1 hour* - Filled in plan.md for my semester 2 schedule
+
+
 
 
 
