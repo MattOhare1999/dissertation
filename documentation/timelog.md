@@ -265,9 +265,13 @@
 
 ## 07 Jan 2020
 
-*1 hour* - Filled in plan.md for my semester 2 schedule
+*1 hour* - Filled in plan.md for my semester 2 schedule  
+*4 hours* - Represented each users usage of an app as a function of the overall average usage of that app  
+*1 hour* - Started evaluating different similarity metrics
 
+## 08 Jan 2020
 
+*7 hours* - Compared different similarity metrics to find best one - Euclidean, Hamming, Jaccard, Cosine, Manhattan and Minkowski. Have settled on Euclidean distance at the moment.
 
 
 
