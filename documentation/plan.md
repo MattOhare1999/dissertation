@@ -27,7 +27,7 @@ Week-by-week plan for the whole project.
 ## Spring Semester
 
 * **Week 13 - 06th Jan** Decide on the most appropriate metric.  
-* **Week 14** Use this metric with different spring model algorithms.  
+* **Week 14 - 13th Jan** Use this metric with different spring model algorithms.  
 * **Week 15** Decide on the most appropriate spring model algorithm.  
 * **Week 16** Analysis and evaluation of the created visualisation.  
 * **Week 17** Analysis and evaluation of the created visualisation.  

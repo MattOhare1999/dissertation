@@ -273,6 +273,18 @@
 
 *7 hours* - Compared different similarity metrics to find best one - Euclidean, Hamming, Jaccard, Cosine, Manhattan and Minkowski. Have settled on Euclidean distance at the moment.
 
+## 13 Jan 2020
+
+*2 hours* - Some background revision reading on spring models
+
+## 14 Jan 2020
+
+*7 hours* - Started looking at creating spring models using Iain's code from last year as a starting point - decent progress was made but no visualisations yet.
+
+## 15 Jan 2020
+
+*2 hours* - Continued with the spring model visualisations, successfully creating some using hamming and euclidean distance as the metric.  
+*0.5 hours* - Wrote up week 13 status report
 
 
 
