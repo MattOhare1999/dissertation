@@ -92,7 +92,7 @@ The majority of the remainder of the meeting was about the dissertation. Matthew
 
 ## Meeting 10 - 28 November 2019, 14:00-14:30
 
-* Present - Matthew James O'Hare. Professor Matthew Chalmers, Dr Alistair Morrison
+* Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
 
 I began by showing my work from last week. I explained the issue with the heatmap and showed the corrected version. From this we spoke about different metrics, at the moment the hamming distance shows more differences than similarities and takes into account all differences between users. It was suggested that I maybe look at other metrics, like the scaler product or give weights to similar values. An example of this would be to take into account the number of launches of an app by a user and then representing the distance as a function of the average usage of that app. 
 
@@ -101,20 +101,24 @@ I also stated that I have a lot of coursework at the moment so progress this wee
 
 ## Meeting 11 - 05 December 2019, 14:00-14:30
 
-* Present - Matthew James O'Hare. Professor Matthew Chalmers, Dr Alistair Morrison
+* Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
 
 As usual, the meeting began with me explaining what I had managed to achieve in the previous week. Matthew was happy with my progress and we went on to talking about what the plan for the upcoming week. I stated that I had an upcoming exam (11th December) therefore not much progress will be made while I concentrate on that. However we agreed that the plan for the next few weeks would be to take into account the average usage of each app for a user across the whole data set and to attempt other metrics to find the most appropriate one.
 
 
 ## Meeting 12 - 12 December 2019, 14:00-14:30
 
-* Present - Matthew James O'Hare. Professor Matthew Chalmers, Dr Alistair Morrison
+* Present - Matthew James O'Hare, Professor Matthew Chalmers, Dr Alistair Morrison
 
 Last meeting before Christmas, I explained how I have not achieved much this past week due to my exam however now that it is over, work will continue. We then spoke about what work I will do over the Christmas break before semester 2. I stated that I would continue evaluating the data and to hopefully find the best similarity metric for comparing the data. Furthermore I said that I had hoped to create some inital spring models with the data and the chosen metric. Matthew was happy with this and also suggested I note down my process writing down everything I have done and the technical specifications of what I am doing, for example, the time and memory consuption for each task etc.
 
 
 ## Meeting 13 - 19 December 2019, No meeting this week
 
+
+## Meeting 14 - 16 January 2020, 14:00-14:30 (Skype call)
+
+* On call - Matthew James O'Hare, Professor Matthew Chalmers
 
 
 

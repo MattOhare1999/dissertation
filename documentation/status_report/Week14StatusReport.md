@@ -1,0 +1,3 @@
+# Week 14 Status Report
+
+Since our last meeting I have continued to compare different spring model algorithms with different metrics and analysed their results. I successfully managed to implement t-SNE which has proved to create more informative visualisations showing clusters that the other algorithms have not been able to. I have spent the past few days creating a document comparing them all when using both standardised euclidean distance (changed after discussion on Skype last week thus the distance between data points is computed on the same scale) and hamming distance. I will show you this tomorrow where we can discuss results and where to go from here.

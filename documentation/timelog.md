@@ -286,7 +286,20 @@
 *2 hours* - Continued with the spring model visualisations, successfully creating some using hamming and euclidean distance as the metric.  
 *0.5 hours* - Wrote up week 13 status report
 
+## 16 Jan 2020
 
+*2 hours* - Looked at implementing a normlaised euclidean distance metric  
+*0.5 hours* - Planned meeting with supervisor  
+*0.5 hours* - Meeting with supervisor  
+*1 hour* - Completed implementation of a normalised euclidean distance metric
+
+## 21 Jan 2020
+
+*8 hours* - Implemented t-SNE algorithm and visualisation and created document comparing all of the different visualisations
+
+## 22 Jan 2020
+
+*0.5 hour* - Wrote up week 14 status report
 
 
 
