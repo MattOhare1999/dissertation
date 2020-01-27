@@ -120,10 +120,20 @@ Last meeting before Christmas, I explained how I have not achieved much this pas
 
 * On call - Matthew James O'Hare, Professor Matthew Chalmers
 
+Short video call due to Matthew working from home. Began by explaining the work carried out over the Christmas period and my decision on my chosen metric - euclidean. Matthew explained the importance of normalising values when calculating this otherwise some columns may give disproportionate results as they over power or out weigh others. Matthew suggested I normalised between 0 and 1 (find min and max and scale down or by having an equal number of points either side of the mean (variance = 1)). We spoke about the accuracy of both hamming and euclidean where hamming is linear and euclidean is continuous but when moving to continuous values, we have to be careful about how much we rely on this distance being accurate. Similar with hamming however, linear may not always be accurate either as we do not neccessarily know what the numbers actually mean.
+
+Matthew also suggested that I set up assumptions before using each metric, run them and compare. We spoke about the usefullness of t-SNE. The only problem with it is it will find clusters in the data even if there is no clusters in the first place making it slightly unreliable. UMAP takes into account global structure as well as local making it slightly better so could be a good idea to attempt both of them. However they are both very reliant on parameters and metrics. An important point from the meeting was that there is no right or correct metric or visualisation.
 
 
+## Meeting 15 - 23 January 2020, 14:00-14:30
 
+* Present - Matthew James O'Hare, Professor Matthew Chalmers
 
+First face to face meeting since Christmas so there was a lot to talk about. I began by showing Matthew my results from the created visualisations. Instead of a final end graph, he suggested that I plot the graph after every, for example, 10 iterations and analyse what the visualisation is showing us and tweak the parameters to see how they change the visualisation. Another suggestions was to not set a max iterations or to plot the error and average velocity and examine when they plateu out. We also spoke about checking the data to see if there are any clusters in the first place, using sklearn and simple algorithms like k-nearest neighbour. Matthew also gave me a website - distil.pub - that has an interesting article on t-SNE that could be useful.
+
+Regarding the metric and using the standarised euclidean distance, it was suggested that I use both the standardised and normal version and compare results. Also check that the standardised distance is calculated properly. Furthermore, as my current visualisations are only on a sample of the data, we decided it would be a good idea to attempt to use larger samples and calculate the times associated with each and how it is affected when more dimensions and apps are added.
+
+To end the meeting we spoke about the writing of the dissertation. Matthew suggested that a good narrative for the dissertation would be to create a pipeline of my process and at each stage, give recommendations and the effects of choices at that stage on the next stage and the overall project. It was suggested that I start to note down potential headings.
 
 
 

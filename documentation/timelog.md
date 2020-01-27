@@ -301,6 +301,15 @@
 
 *0.5 hour* - Wrote up week 14 status report
 
+## 23 Jan 2020
+
+*1 hour* - Tweaking t-SNE implementation and attempted kmeans clustering  
+*0.5 hours* - Planned meeting with supervisor  
+*0.5 hours* - Meeting with supervisor
+
+## 27 Jan 2020
+
+*1 hour* - Wrote up last two weeks of meeting minutes  
 
 
 
