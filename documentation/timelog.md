@@ -310,6 +310,29 @@
 ## 27 Jan 2020
 
 *1 hour* - Wrote up last two weeks of meeting minutes  
+*2 hours* - Exported larger data sets and used with different algorithms.  
+*4 hours* - Used basic clustering algorithms - kmeans and mean shift - with the data to identify clusters. Not very useful nor effective.
+
+## 28 Jan 2020
+
+*4 hours* - Used UMAP as an alternative to identify clusters. Far more useful.
+*4 hours* - Played about with different UMAP visualisations, in particular, interactive graphs.
+
+## 29 Jan 2020
+
+*1 hour* - Completed implementation of interactive graphs for UMAP visualisations.
+
+## 30 Jan 2020
+
+*0.5 hours* - Wrote up week 15 status report
+*0.5 hours* - Planned meeting with supervisor
+*0.5 hours* - Meeting wtih supervisor
+
+## 05 Feb 2020
+
+*0.5 hours* - Wrote up meeting minutes
+*0.5 hours* - Wrote up week 16 status report
+
 
 
 

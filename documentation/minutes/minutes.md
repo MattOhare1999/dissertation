@@ -129,11 +129,25 @@ Matthew also suggested that I set up assumptions before using each metric, run t
 
 * Present - Matthew James O'Hare, Professor Matthew Chalmers
 
-First face to face meeting since Christmas so there was a lot to talk about. I began by showing Matthew my results from the created visualisations. Instead of a final end graph, he suggested that I plot the graph after every, for example, 10 iterations and analyse what the visualisation is showing us and tweak the parameters to see how they change the visualisation. Another suggestions was to not set a max iterations or to plot the error and average velocity and examine when they plateu out. We also spoke about checking the data to see if there are any clusters in the first place, using sklearn and simple algorithms like k-nearest neighbour. Matthew also gave me a website - distil.pub - that has an interesting article on t-SNE that could be useful.
+First face to face meeting since Christmas so there was a lot to talk about. I began by showing Matthew my results from the created visualisations. Instead of a final end graph, he suggested that I plot the graph after every, for example, 10 iterations and analyse what the visualisation is showing us and tweak the parameters to see how they change the visualisation. Another suggestion was to not set a max iterations or to plot the error and average velocity and examine when they plateu out. We also spoke about checking the data to see if there are any clusters in the first place, using sklearn and simple algorithms like k-nearest neighbour. Matthew also gave me a website - distil.pub - that has an interesting article on t-SNE that could be useful.
 
 Regarding the metric and using the standarised euclidean distance, it was suggested that I use both the standardised and normal version and compare results. Also check that the standardised distance is calculated properly. Furthermore, as my current visualisations are only on a sample of the data, we decided it would be a good idea to attempt to use larger samples and calculate the times associated with each and how it is affected when more dimensions and apps are added.
 
 To end the meeting we spoke about the writing of the dissertation. Matthew suggested that a good narrative for the dissertation would be to create a pipeline of my process and at each stage, give recommendations and the effects of choices at that stage on the next stage and the overall project. It was suggested that I start to note down potential headings.
+
+
+## Meeting 16 - 30th January 2020, 14:00-14:30
+
+* Present - Matthew James O'Hare, Professor Matthew Chalmers
+
+As usual the meeting began with me showing Matthew my work from the past week with UMAP and kmeans visualisations. Matthew made a few points regarding them. For UMAP he suggested that I investigate the clusters to see whether the locations of each data point are appropriate and "correct". For kmeans, he suggested that I have a look to see whether the produced visualisation is actually correct as he is not sure. A suggestion was to reduce the size of the dots and look at plotting better maybe by using specifc algorithms or techniques for it.
+
+The main points taken away to work on was to investigate kmeans to find natural clusters in high dimensional data and this would help to find a good value for k. Kmeans could then be the base when comparing to spring models, t-SNE and UMAP. Secondly, investigate potential clusters in spring models (even though they are not separate). This could potentially be done by increasing the distance between points in the spring models algorithms, if possible that is.
+
+
+## Meeting 17 - 05th February 2020, 14:00-14:30
+
+* Present - Matthew James O'Hare, Professor Matthew Chalmers
 
 
 
