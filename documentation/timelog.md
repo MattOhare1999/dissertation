@@ -315,7 +315,7 @@
 
 ## 28 Jan 2020
 
-*4 hours* - Used UMAP as an alternative to identify clusters. Far more useful.
+*4 hours* - Used UMAP as an alternative to identify clusters. Far more useful.  
 *4 hours* - Played about with different UMAP visualisations, in particular, interactive graphs.
 
 ## 29 Jan 2020
@@ -324,15 +324,31 @@
 
 ## 30 Jan 2020
 
-*0.5 hours* - Wrote up week 15 status report
-*0.5 hours* - Planned meeting with supervisor
+*0.5 hours* - Wrote up week 15 status report  
+*0.5 hours* - Planned meeting with supervisor  
 *0.5 hours* - Meeting wtih supervisor
 
 ## 05 Feb 2020
 
-*0.5 hours* - Wrote up meeting minutes
+*0.5 hours* - Wrote up meeting minutes  
+*2 hours* - Looked at improving kmeans and spring model visualisations - no progress  
+*0.5 hours* - Created a headings template for dissertation  
 *0.5 hours* - Wrote up week 16 status report
 
+## 06 Feb 2020
+
+*0.5 hours* - Planned for meeting with supervisor  
+*0.5 hours* - Meeting with supervisor  
+*1 hour* - Recommended reading by supervisor - How to Use t-SNE Effectively
+
+## 07 Feb 2020
+
+*0.5 hours* - Wrote up meeting minutes  
+*6 hours* - Corrected t-SNE visualisation, labelling each data point by id.
+
+## 08 Feb 2020
+
+*1 hour* - Got offline code to a suitable standard and format to finally be committed to repo.
 
 
 

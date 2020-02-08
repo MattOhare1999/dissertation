@@ -149,9 +149,7 @@ The main points taken away to work on was to investigate kmeans to find natural 
 
 * Present - Matthew James O'Hare, Professor Matthew Chalmers
 
-
-
-
+Since I had not made much progress this week, it was a quick meeting. Matthew emphasised the point of time management and making good use of my time in the upcoming weekes. He suggested that I look at what coursework and other university work I have coming up and plan around it to make sure I do not run out of time when writing the dissertation.
 
 
 
