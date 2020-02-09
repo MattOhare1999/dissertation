@@ -12,5 +12,5 @@ from .utils import (
     score_n_samples, get_size
 )
 from .draw import (
-    BrawLayout
+    DrawLayout
 )

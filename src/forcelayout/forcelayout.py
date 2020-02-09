@@ -1,5 +1,5 @@
 from .algorithms import BaseSpringLayout, Pivot, NeighbourSampling, Hybrid, SpringForce, Node
-from .draw import BrawLayout
+from .draw import DrawLayout
 from typing import Callable, Dict, Any, List, Optional
 import numpy as np
 import matplotlib
@@ -62,7 +62,7 @@ def draw_spring_layout(
                                       distance,
                                       target_node_speed)
 
-    draw_layout = BrawLayout(dataset=dataset, spring_layout=spring_layout)
+    draw_layout = DrawLayout(dataset=dataset, spring_layout=spring_layout)
     spring_layout.spring_layout()
     draw_layout.draw(alpha=alpha, **_create_params(color_by=color_by, color_map=color_map,
                                                    annotate=annotate, size=size,
@@ -128,7 +128,7 @@ def draw_spring_layout_animated(
                                       distance,
                                       target_node_speed)
 
-    draw_layout = BrawLayout(dataset=dataset, spring_layout=spring_layout)
+    draw_layout = DrawLayout(dataset=dataset, spring_layout=spring_layout)
     return draw_layout.draw_animated(**_create_params(alpha=alpha, color_by=color_by,
                                                       color_map=color_map, interval=interval,
                                                       draw_every=draw_every, annotate=annotate,

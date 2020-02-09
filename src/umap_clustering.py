@@ -20,15 +20,22 @@ user_ids = pd.DataFrame({'ID': user_ids})
 
 embedding = umap.UMAP(metric=metric, min_dist=0.1, spread=0.75).fit(app_usage)
 
-umap.plot.points(embedding, values=embedding.transform(app_usage)[
-                 :, 0], cmap='inferno', height=800, width=800)
+umap.plot.points(embedding,
+                 values=embedding.transform(app_usage)[:, 0],
+                 cmap='inferno',
+                 height=800,
+                 width=800)
 # umap.plot.connectivity(embedding, show_points=True,
 # height=1600, width=1600, edge_bundling='hammer')
 # umap.plot.diagnostic(embedding, diagnostic_type="neighborhood")
 
-umap.plot.output_file('plot.html')
-p = umap.plot.interactive(embedding, values=embedding.transform(
-    app_usage)[:, 0], hover_data=user_ids, cmap='inferno', height=800, width=800)
+umap.plot.output_file('umap_plots/plot.html')
+p = umap.plot.interactive(embedding,
+                          values=embedding.transform(app_usage)[:, 0],
+                          hover_data=user_ids,
+                          cmap='inferno',
+                          height=800,
+                          width=800)
 umap.plot.show(p)
 
 total = time.time() - start

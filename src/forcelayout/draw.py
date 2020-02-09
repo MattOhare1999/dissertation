@@ -9,17 +9,29 @@ ColorMap = plt.cm
 global isTsne
 
 
-class BrawLayout:
+class DrawLayout:
     def __init__(self, dataset: np.ndarray, spring_layout: BaseSpringLayout):
         self.dataset: np.ndarray = dataset
         self.spring_layout: BaseSpringLayout = spring_layout
 
-    def draw(self, data, alpha: float = None, color_by: Callable[[np.ndarray], float] = None,
-             color_map: str = 'viridis', annotate: Callable[[Node, int], str] = None,
-             size: float = 40, algorithm_highlights: bool = False) -> None:
+    def draw(self,
+             alpha: float = None,
+             color_by: Callable[[np.ndarray], float] = None,
+             color_map: str = 'viridis',
+             annotate: Callable[[Node, int], str] = None,
+             size: float = 40,
+             algorithm_highlights: bool = False) -> None:
+        """
+        Draw the spring layout graph.
+        alpha: float in range 0 - 1 for the opacity of points
+        color_by: function to represent a node as a single float which will be used to color it
+        color_map: string name of matplotlib.pyplot.cm to take colors from when coloring
+                   using color_by
+        """
+        # Get positions of nodes
         pos: np.ndarray = self.spring_layout.get_positions()
-        x = data[:, 0]
-        y = data[:, 1]
+        x = pos[:, 0]
+        y = pos[:, 1]
 
         global isTsne
         isTsne = False
@@ -36,14 +48,14 @@ class BrawLayout:
         if algorithm_highlights:
             self._enable_highlights(scatter=sc)
 
-    def draw_tsne(self, data, alpha: float = None, color_by=None, color_map: str = 'viridis', annotate: Callable[[Node, int], str] = None, size: float = 40, algorithm_highlights: bool = False) -> None:
-        """
-        Draw the spring layout graph.
-        alpha: float in range 0 - 1 for the opacity of points
-        color_by: function to represent a node as a single float which will be used to color it
-        color_map: string name of matplotlib.pyplot.cm to take colors from when coloring
-                   using color_by
-        """
+    def draw_tsne(self,
+                  data,
+                  alpha: float = None,
+                  color_by: Callable[[np.ndarray], float] = None,
+                  color_map: str = 'viridis',
+                  annotate: Callable[[Node, int], str] = None,
+                  size: float = 40,
+                  algorithm_highlights: bool = False) -> None:
         # Get positions of nodes
         x = data[:, 0]
         y = data[:, 1]
@@ -53,7 +65,7 @@ class BrawLayout:
 
         # Color nodes
         colors, cmap = self._get_colors(color_by, color_map)
-
+        print(colors)
         # Draw plot
         sc = plt.scatter(x, y, s=size, alpha=alpha, c=colors, cmap=cmap)
         plt.axis('off')
@@ -66,9 +78,14 @@ class BrawLayout:
         if algorithm_highlights:
             self._enable_highlights(scatter=sc)
 
-    def draw_animated(self, alpha: float = None, color_by: Callable[[np.ndarray], float] = None,
-                      color_map: str = 'viridis', interval: int = 10, draw_every: int = 1,
-                      annotate: Callable[[Node, int], str] = None, size: float = 40,
+    def draw_animated(self,
+                      alpha: float = None,
+                      color_by: Callable[[np.ndarray], float] = None,
+                      color_map: str = 'viridis',
+                      interval: int = 10,
+                      draw_every: int = 1,
+                      annotate: Callable[[Node, int], str] = None,
+                      size: float = 40,
                       algorithm_highlights: bool = False) -> Animation:
         """
         Draw an animated spring layout graph.
@@ -87,8 +104,12 @@ class BrawLayout:
 
         fig = plt.gcf()
         ax = plt.gca()
-        scatter = ax.scatter(pos[:, 0], pos[:, 1],
-                             s=size, alpha=alpha, c=colors, cmap=cmap)
+        scatter = ax.scatter(pos[:, 0],
+                             pos[:, 1],
+                             s=size,
+                             alpha=alpha,
+                             c=colors,
+                             cmap=cmap)
 
         def update_nodes(frame):
             pos = self.spring_layout.spring_layout(return_after=draw_every)
@@ -105,7 +126,9 @@ class BrawLayout:
         if algorithm_highlights:
             self._enable_highlights(scatter=scatter)
 
-        self.ani = Animation(fig, update_nodes, interval=interval,
+        self.ani = Animation(fig,
+                             update_nodes,
+                             interval=interval,
                              save_count=self.spring_layout.iterations)
         return self.ani
 
@@ -122,7 +145,10 @@ class BrawLayout:
         self._active_annotations: FrozenSet[int] = frozenset()
         fig = plt.gcf()
         ax = plt.gca()
-        annot = ax.annotate("", xy=(0, 0), xytext=(20, 20), textcoords="offset points",
+        annot = ax.annotate("",
+                            xy=(0, 0),
+                            xytext=(20, 20),
+                            textcoords="offset points",
                             bbox=dict(boxstyle="round", fc="w"),
                             arrowprops=dict(arrowstyle="->"),
                             fontsize='16')
@@ -139,13 +165,14 @@ class BrawLayout:
             global isTsne
 
             if isTsne == False:
-                text = ", ".join(
-                    [annotate(self.spring_layout.nodes[n], n)
-                     for n in ind["ind"][:5]]
-                )
+                text = ", ".join([
+                    annotate(self.spring_layout.nodes[n], n)
+                    for n in ind["ind"][:5]
+                ])
             else:
-                text = ", ".join([annotate(self.spring_layout[n], n)
-                                  for n in ind["ind"][:5]])
+                text = ", ".join([
+                    annotate(self.spring_layout[n], n) for n in ind["ind"][:5]
+                ])
 
             if len(ind["ind"]) > 5:
                 text += ', ...'
@@ -188,8 +215,8 @@ class BrawLayout:
                     top_index = ind['ind'][0]
                     highlighted_indexes = self._get_highlighted(top_index)
                     for index in highlighted_indexes:
-                        self._highlighted[index] = scatter._facecolors[index, :].copy(
-                        )
+                        self._highlighted[index] = scatter._facecolors[
+                            index, :].copy()
                         scatter._facecolors[index, :] = (1, 0, 0, 1)
                 fig.canvas.draw_idle()
 
@@ -214,7 +241,9 @@ class BrawLayout:
             cmap = plt.cm.get_cmap(color_map)
         return (colors, cmap)
 
-    def _get_limits(self, arr: np.ndarray, delta: float = 0.0) -> Tuple[float, float]:
+    def _get_limits(self,
+                    arr: np.ndarray,
+                    delta: float = 0.0) -> Tuple[float, float]:
         lower = arr.min()
         upper = arr.max()
         diff = upper - lower

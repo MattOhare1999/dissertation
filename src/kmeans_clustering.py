@@ -2,33 +2,32 @@ import sys
 import time
 import numpy as np
 from app_usage_utils import load_app_usage, annotate_app_usage, app_usage_distance
-from poker_utils import load_poker
 import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.manifold import TSNE
-import umap
 
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
 app_usage = load_app_usage(top_apps, data_set_size)
-#app_usage = load_poker(top_apps)
 
-plt.figure(figsize=(16.0, 16.0))
+for i in range(1, 10):
+    plt.figure(figsize=(8.0, 8.0))
+    start = time.time()
+    k = KMeans(n_clusters=i).fit_predict(app_usage)
+    #k2 = KMeans().fit_transform(app_usage)
 
-start = time.time()
+    embedding = TSNE(n_iter=5000, perplexity=30).fit_transform(app_usage)
+    # kmeans just finds the clusters doesnt actually plot them
+    #print("There are %d clusters" % len(np.unique(k.predict(app_usage))))
 
-#embedding = TSNE(n_components=2, perplexity=30).fit_transform(app_usage)
-embedding = umap.UMAP(metric='euclidean').fit_transform(app_usage)
+    #points = k.transform(app_usage)
+    #print(points)
+    #print(k.cluster_centers_)
 
-k = KMeans().fit_transform(embedding)
+    plt.scatter(embedding[:, 0], embedding[:, 1], c=k)
 
-x = k[:, 0]
-y = k[:, 1]
-
-plt.scatter(x, y)
-
-total = time.time() - start
-print(f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')
+    total = time.time() - start
+    print(f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')
 
 plt.show()
 
