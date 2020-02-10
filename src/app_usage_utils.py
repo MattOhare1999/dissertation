@@ -68,7 +68,7 @@ def app_usage_distance(h1, h2):
     similarity metric between two users hands
     """
     """ hamming distance """
-    #return distance.hamming(h1, h2)
+    # return distance.hamming(h1, h2)
     """ euclidean distance """
     return np.linalg.norm(h2 - h1)
     """ standardised euclidean distance """

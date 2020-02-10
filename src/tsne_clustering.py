@@ -19,6 +19,7 @@ app_usage = load_app_usage(top_apps, data_set_size)
 metric = sys.argv[3]
 variance = get_variance()
 
+# best one seems to be 50 for 7500
 perplex = [20, 30, 40, 50]
 k = KMeans(n_clusters=4).fit_predict(app_usage)
 
@@ -43,12 +44,13 @@ for i in perplex:
     draw_layout.draw_tsne(
         data=embedding,
         alpha=0.7,
-        #   color_by=lambda d: d[4],
-        color_by=lambda k: k,
+        point_colors=k,
         annotate=annotate_app_usage,
         algorithm_highlights=True)
 
     total = time.time() - start
+    plt.savefig("../data/outputs/tsne_plots/%d_%s_%d_%.0fs.jpg" %
+                (data_set_size, metric, perplexity, total))
     print(f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')
 
 plt.show()

@@ -21,6 +21,7 @@ def draw_spring_layout(
         size: float = None,
         color_by: Callable[[np.ndarray], float] = None,
         color_map: str = None,
+        point_colors=None,
         annotate: Callable[[Node, int], str] = None,
         algorithm_highlights: bool = False,
         target_node_speed: float = None) -> BaseSpringLayout:
@@ -64,7 +65,7 @@ def draw_spring_layout(
 
     draw_layout = DrawLayout(dataset=dataset, spring_layout=spring_layout)
     spring_layout.spring_layout()
-    draw_layout.draw(alpha=alpha, **_create_params(color_by=color_by, color_map=color_map,
+    draw_layout.draw(alpha=alpha, **_create_params(color_by=color_by, color_map=color_map, point_colors=point_colors,
                                                    annotate=annotate, size=size,
                                                    algorithm_highlights=algorithm_highlights))
     return spring_layout

@@ -29,7 +29,11 @@ umap.plot.points(embedding,
 # height=1600, width=1600, edge_bundling='hammer')
 # umap.plot.diagnostic(embedding, diagnostic_type="neighborhood")
 
-umap.plot.output_file('umap_plots/plot.html')
+total = time.time() - start
+
+umap.plot.output_file('../data/outputs/umap_plots/%d_%s_%.0fs.html' %
+                      (data_set_size, metric, total))
+
 p = umap.plot.interactive(embedding,
                           values=embedding.transform(app_usage)[:, 0],
                           hover_data=user_ids,
@@ -38,7 +42,6 @@ p = umap.plot.interactive(embedding,
                           width=800)
 umap.plot.show(p)
 
-total = time.time() - start
 print(f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')
 
 plt.show()

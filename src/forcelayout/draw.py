@@ -17,7 +17,8 @@ class DrawLayout:
     def draw(self,
              alpha: float = None,
              color_by: Callable[[np.ndarray], float] = None,
-             color_map: str = 'viridis',
+             color_map: str = 'Set1',
+             point_colors=None,
              annotate: Callable[[Node, int], str] = None,
              size: float = 40,
              algorithm_highlights: bool = False) -> None:
@@ -36,8 +37,9 @@ class DrawLayout:
         global isTsne
         isTsne = False
 
-        colors, cmap = self._get_colors(color_by, color_map)
-        sc = plt.scatter(x, y, s=size, alpha=alpha, c=colors, cmap=cmap)
+        ##colors, cmap = self._get_colors(color_by, color_map)
+        sc = plt.scatter(x, y, s=size, alpha=alpha,
+                         c=point_colors, cmap=color_map)
         plt.axis("off")
 
         if annotate is not None:
@@ -52,7 +54,8 @@ class DrawLayout:
                   data,
                   alpha: float = None,
                   color_by: Callable[[np.ndarray], float] = None,
-                  color_map: str = 'viridis',
+                  color_map: str = 'Set1',
+                  point_colors=None,
                   annotate: Callable[[Node, int], str] = None,
                   size: float = 40,
                   algorithm_highlights: bool = False) -> None:
@@ -63,11 +66,9 @@ class DrawLayout:
         global isTsne
         isTsne = True
 
-        # Color nodes
-        colors, cmap = self._get_colors(color_by, color_map)
-        print(colors)
         # Draw plot
-        sc = plt.scatter(x, y, s=size, alpha=alpha, c=colors, cmap=cmap)
+        sc = plt.scatter(x, y, s=size, alpha=alpha,
+                         c=point_colors, cmap=color_map)
         plt.axis('off')
 
         if annotate is not None:
