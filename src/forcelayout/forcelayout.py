@@ -4,6 +4,7 @@ from typing import Callable, Dict, Any, List, Optional
 import numpy as np
 import matplotlib
 from sklearn.manifold import TSNE
+import umap
 
 
 def draw_spring_layout(
@@ -220,6 +221,11 @@ def _create_algorithm(
         params = _create_params(n_components=2, metric='euclidean')
         spring_layout = TSNE(
             n_components=2, metric='euclidean').fit_transform(dataset)
+    elif algorithm is umap:
+        params = _create_params(
+            metric='euclidean', min_dist=0.1, spread=0.75)
+        spring_layout = umap.UMAP(
+            metric='euclidean', min_dist=0.1, spread=0.75).fit_transform(dataset)
     else:
         params = _create_params(distance_fn=distance, iterations=iterations,
                                 target_node_speed=target_node_speed)

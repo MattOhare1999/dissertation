@@ -79,6 +79,36 @@ class DrawLayout:
         if algorithm_highlights:
             self._enable_highlights(scatter=sc)
 
+    def draw_umap(self,
+                  data,
+                  dataset,
+                  alpha: float = None,
+                  color_by: Callable[[np.ndarray], float] = None,
+                  color_map: str = 'Set1',
+                  point_colors=None,
+                  annotate: Callable[[Node, int], str] = None,
+                  size: float = 40,
+                  algorithm_highlights: bool = False) -> None:
+        # Get positions of nodes
+        x = data.transform(dataset)[:, 0]
+        y = data.transform(dataset)[:, 1]
+
+        global isTsne
+        isTsne = True
+
+        # Draw plot
+        sc = plt.scatter(x, y, s=size, alpha=alpha,
+                         c=point_colors, cmap=color_map)
+        plt.axis('off')
+
+        if annotate is not None:
+            self._enable_annotation(annotate=annotate,
+                                    scatter=sc,
+                                    color_by=color_by)
+
+        if algorithm_highlights:
+            self._enable_highlights(scatter=sc)
+
     def draw_animated(self,
                       alpha: float = None,
                       color_by: Callable[[np.ndarray], float] = None,
