@@ -5,22 +5,22 @@
 * 2255357o
 * Professor Matthew Chalmers
 
-These are notes made from my evaluation of the App Tracker data set.
+These are notes made from my evaluation of the App Tracker data set.  
 
-* Original data had 289,142 rows, with 2 columns each - userID and appID
+* Original data had 289,142 rows, with 2 columns each - userID and appID  
 
-* 10,368 users and 45,788 apps
+* 10,368 users and 45,788 apps  
   * user ids from 2 to 16194  
   * app ids from 1 to 45788  
 
-* Some users have a lot more data than others
+* Some users have a lot more data than others  
   * user 4942 has used 908 apps  
   * user 6614 has used 532 apps  
   * user 10977 has used 470 apps  
   * there are lots of users that only use 1 app - 745 - with 1007 users that use 3 apps  
   * there are 5,172 users that have used 10 or less apps  
 
-* Range of number of users of an app is massive
+* Range of number of users of an app is massive  
   * top used app used by - 10173 users - this is a utilities app (id: 31336)  
   * second top app used by - 9586 users - this is springboard (id: 3980)  
   * third top app used by - 6452 users - this is a utilities app (id: 3969)  
@@ -47,8 +47,16 @@ These are notes made from my evaluation of the App Tracker data set.
 * There are 2053 users that were only seen for less than 5 minutes (300 seconds).  
 * There are 4600 users that were only seen for less than 1 day (86400 seconds).  
 
-* There are some users that are anomalies, for example: user id 5 has been seen for around 50 days but has only used 7 apps with a total of 22 launches in that time. 
+* There are some users that are anomalies, for example: user id 5 has been seen for around 50 days but has only used 7 apps with a total of 22 launches in that time.  
 
-
+* After removing users who we:  
+  * have seen for less than 5 minutes or  
+  * have seen for less than 24 hours and used less than 1 app per hour or  
+  * have seen for more than 24 hours and used more than 1 app per day.  
+There were a few more anomolies:  
+  * User 1617  
+  * User 6308  
+  * User 6384  
+  * user 10621  
 
 

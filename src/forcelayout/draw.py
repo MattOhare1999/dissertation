@@ -29,6 +29,7 @@ class DrawLayout:
         color_map: string name of matplotlib.pyplot.cm to take colors from when coloring
                    using color_by
         """
+
         # Get positions of nodes
         pos: np.ndarray = self.spring_layout.get_positions()
         x = pos[:, 0]
@@ -59,6 +60,7 @@ class DrawLayout:
                   annotate: Callable[[Node, int], str] = None,
                   size: float = 40,
                   algorithm_highlights: bool = False) -> None:
+
         # Get positions of nodes
         x = data[:, 0]
         y = data[:, 1]
@@ -89,6 +91,7 @@ class DrawLayout:
                   annotate: Callable[[Node, int], str] = None,
                   size: float = 40,
                   algorithm_highlights: bool = False) -> None:
+
         # Get positions of nodes
         x = data.transform(dataset)[:, 0]
         y = data.transform(dataset)[:, 1]

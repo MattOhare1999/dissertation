@@ -189,7 +189,9 @@ def _create_algorithm(
         sample_set_size: int = None,
         neighbour_set_size: int = None,
         distance: Callable[[np.ndarray, np.ndarray], float] = None,
-        target_node_speed: float = None) -> BaseSpringLayout:
+        target_node_speed: float = None,
+        metric: str = 'euclidean',
+        metric_kwds: dict = None) -> BaseSpringLayout:
     """
     Create the spring model algorithm with the given dataset and parameters
     """
@@ -218,14 +220,11 @@ def _create_algorithm(
                                 target_node_speed=target_node_speed)
         spring_layout = NeighbourSampling(dataset=dataset, **params)
     elif algorithm is TSNE:
-        params = _create_params(n_components=2, metric='euclidean')
         spring_layout = TSNE(
-            n_components=2, metric='euclidean').fit_transform(dataset)
+            n_components=2, metric=metric).fit_transform(dataset)
     elif algorithm is umap:
-        params = _create_params(
-            metric='euclidean', min_dist=0.1, spread=0.75)
         spring_layout = umap.UMAP(
-            metric='euclidean', min_dist=0.1, spread=0.75).fit_transform(dataset)
+            metric=metric, min_dist=0.1, spread=0.75, metric_kwds=metric_kwds).fit_transform(dataset)
     else:
         params = _create_params(distance_fn=distance, iterations=iterations,
                                 target_node_speed=target_node_speed)

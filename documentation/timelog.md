@@ -350,9 +350,13 @@
 
 *1 hour* - Got offline code to a suitable standard and format to finally be committed to repo.
 
+## 10 Feb 2020
 
+*8 hours* - Used kmeans to find clusters in spring models and found best values of k. Also increased the number of iterations of the spring model algorihtms to find the best values also.
 
+## 11 Feb 2020
 
+*8 hours* - Removed user anomolies and improved command line arguments and error handling to give users more flexibility. Also allowed standardised euclidean distance for all algorithms and improved saving format for visualisations.
 
 
 

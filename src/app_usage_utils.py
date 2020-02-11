@@ -25,6 +25,9 @@ def load_file(name, dtype):
                           dtype=dtype,
                           comments='#')
         variance.append(np.var(file, 0))
+        for j in range(len(variance[0])):
+            if variance[0][j] == 0:
+                variance[0][j] = 1
         return file
 
 
@@ -70,6 +73,6 @@ def app_usage_distance(h1, h2):
     """ hamming distance """
     # return distance.hamming(h1, h2)
     """ euclidean distance """
-    return np.linalg.norm(h2 - h1)
+    # return np.linalg.norm(h2 - h1)
     """ standardised euclidean distance """
-    # return distance.seuclidean(h1, h2, variance)
+    return distance.seuclidean(h1, h2, variance)
