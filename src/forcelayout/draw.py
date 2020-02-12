@@ -2,6 +2,7 @@ from .algorithms import BaseSpringLayout, Node, NeighbourSampling, Hybrid, Pivot
 from typing import Callable, Tuple, List, Optional, FrozenSet, Dict
 from matplotlib.animation import FuncAnimation as Animation
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
 import logging
 
@@ -42,6 +43,50 @@ class DrawLayout:
         sc = plt.scatter(x, y, s=size, alpha=alpha,
                          c=point_colors, cmap=color_map)
         plt.axis("off")
+
+        if annotate is not None:
+            self._enable_annotation(annotate=annotate,
+                                    scatter=sc,
+                                    color_by=color_by)
+
+        if algorithm_highlights:
+            self._enable_highlights(scatter=sc)
+
+    def draw_facets(self,
+                    alpha: float = None,
+                    color_by: Callable[[np.ndarray], float] = None,
+                    color_map: str = 'Set1',
+                    point_colors=None,
+                    annotate: Callable[[Node, int], str] = None,
+                    size: float = 40,
+                    algorithm_highlights: bool = False,
+                    current_plot: int = None,
+                    current_iters: int = None) -> None:
+        """
+        Draw the spring layout graph.
+        alpha: float in range 0 - 1 for the opacity of points
+        color_by: function to represent a node as a single float which will be used to color it
+        color_map: string name of matplotlib.pyplot.cm to take colors from when coloring
+                   using color_by
+        """
+        # this has to be done in current version, new version will apparantly create a new axes automatically
+        # instead of adding them to the same plot
+        scatter_pos = [231, 232, 233, 234, 235]
+        # Get positions of nodes
+        pos: np.ndarray = self.spring_layout.get_positions()
+        x = pos[:, 0]
+        y = pos[:, 1]
+
+        global isTsne
+        isTsne = False
+
+        ##colors, cmap = self._get_colors(color_by, color_map)
+        plt.subplot(scatter_pos[current_plot-1])
+        sc = plt.scatter(x, y, s=size, alpha=alpha,
+                         c=point_colors, cmap=color_map)
+        label = str(current_iters) + " Iterations"
+        plt.title(label)
+        # plt.axis("off")
 
         if annotate is not None:
             self._enable_annotation(annotate=annotate,

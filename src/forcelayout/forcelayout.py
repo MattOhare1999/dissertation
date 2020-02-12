@@ -25,7 +25,8 @@ def draw_spring_layout(
         point_colors=None,
         annotate: Callable[[Node, int], str] = None,
         algorithm_highlights: bool = False,
-        target_node_speed: float = None) -> BaseSpringLayout:
+        target_node_speed: float = None,
+        show_progression: bool = False) -> BaseSpringLayout:
     """
     Draw a spring layout diagram of the data using the given algorithm
 
@@ -64,12 +65,26 @@ def draw_spring_layout(
                                       distance,
                                       target_node_speed)
 
-    draw_layout = DrawLayout(dataset=dataset, spring_layout=spring_layout)
-    spring_layout.spring_layout()
-    draw_layout.draw(alpha=alpha, **_create_params(color_by=color_by, color_map=color_map, point_colors=point_colors,
-                                                   annotate=annotate, size=size,
-                                                   algorithm_highlights=algorithm_highlights))
-    return spring_layout
+    if show_progression:
+        for i in range(1, 6):
+            current = int(iterations/5)
+            draw_layout = DrawLayout(
+                dataset=dataset, spring_layout=spring_layout)
+            spring_layout.spring_layout(return_after=current)
+            draw_layout.draw_facets(alpha=alpha, current_plot=i, current_iters=current*i, **_create_params(color_by=color_by, color_map=color_map, point_colors=point_colors,
+                                                                                                           annotate=annotate, size=size,
+                                                                                                           algorithm_highlights=algorithm_highlights))
+        return spring_layout
+
+    else:
+        draw_layout = DrawLayout(
+            dataset=dataset, spring_layout=spring_layout)
+        spring_layout.spring_layout()
+        print(spring_layout.average_speed())
+        draw_layout.draw(alpha=alpha, **_create_params(color_by=color_by, color_map=color_map, point_colors=point_colors,
+                                                       annotate=annotate, size=size,
+                                                       algorithm_highlights=algorithm_highlights))
+        return spring_layout
 
 
 def draw_spring_layout_animated(

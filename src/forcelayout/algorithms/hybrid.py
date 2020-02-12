@@ -28,7 +28,7 @@ class Hybrid(BaseSpringLayout):
                  distance_fn: Callable[[np.ndarray, np.ndarray], float] = euclidean,
                  sample_layout_iterations: int = 75, remainder_layout_iterations: int = 5,
                  refine_layout_iterations: int = 5, random_sample_size: int = 15,
-                 preset_sample: List[int] = None, target_node_speed: float=0.0,
+                 preset_sample: List[int] = None, target_node_speed: float = 0.0,
                  enable_cache: bool = True) -> None:
         iterations = sample_layout_iterations + refine_layout_iterations + 1
         super().__init__(dataset=dataset, nodes=nodes, distance_fn=distance_fn,
@@ -44,9 +44,12 @@ class Hybrid(BaseSpringLayout):
         self.sample_indexes:        List[int] = (preset_sample if preset_sample is not None else
                                                  random_sample_set(self.sample_set_size,
                                                                    len(self.nodes)))
-        self.remainder_indexes:     List[int] = list(set(range(n)) - set(self.sample_indexes))
-        self.sample:               List[Node] = [self.nodes[i] for i in self.sample_indexes]
-        self.remainder:            List[Node] = [self.nodes[i] for i in self.remainder_indexes]
+        self.remainder_indexes:     List[int] = list(
+            set(range(n)) - set(self.sample_indexes))
+        self.sample:               List[Node] = [
+            self.nodes[i] for i in self.sample_indexes]
+        self.remainder:            List[Node] = [
+            self.nodes[i] for i in self.remainder_indexes]
         self.data_size_factor:          float = 1 / self.random_sample_size
         self.stage:               HybridStage = HybridStage.LAYOUT_SAMPLE
         self.stages = {
@@ -130,9 +133,12 @@ class Hybrid(BaseSpringLayout):
 
         sample_distances_error = self._create_error_fn(parent_index, distances)
 
-        lower_angle, upper_angle = self._find_circle_quadrant(sample_distances_error)
-        best_angle = self._binary_search_angle(lower_angle, upper_angle, sample_distances_error)
-        source.x, source.y = point_on_circle(parent.x, parent.y, best_angle, radius)
+        lower_angle, upper_angle = self._find_circle_quadrant(
+            sample_distances_error)
+        best_angle = self._binary_search_angle(
+            lower_angle, upper_angle, sample_distances_error)
+        source.x, source.y = point_on_circle(
+            parent.x, parent.y, best_angle, radius)
         self._force_layout_child(index, distances, alpha)
 
     def _create_error_fn(self, parent_index: int,
@@ -157,7 +163,8 @@ class Hybrid(BaseSpringLayout):
         Find the cloest parent node to the source, also return the
         list of calculated distances to speed up later calculation
         """
-        distances: List[float] = [self.distance(source, target) for target in self.sample]
+        distances: List[float] = [self.distance(
+            source, target) for target in self.sample]
         parent_index: int = np.argmin(distances)
         return parent_index, distances
 
@@ -169,10 +176,13 @@ class Hybrid(BaseSpringLayout):
         distance_errors = [error_fn(angle) for angle in angles]
         # determine angle with lowest error and choose neighbour quadrant angle with lowest error
         best_angle_i = np.argmin(distance_errors)
-        neighbour_angle_indexes = (best_angle_i - 1) % 4, (best_angle_i + 1) % 4
-        closest_neighbour = np.argmin([distance_errors[i] for i in neighbour_angle_indexes])
+        neighbour_angle_indexes = (
+            best_angle_i - 1) % 4, (best_angle_i + 1) % 4
+        closest_neighbour = np.argmin(
+            [distance_errors[i] for i in neighbour_angle_indexes])
         lower_bound_angle = (
-            angles[best_angle_i] if closest_neighbour == 1 else angles[(best_angle_i - 1) % 4]
+            angles[best_angle_i] if closest_neighbour == 1 else angles[(
+                best_angle_i - 1) % 4]
         )
         return lower_bound_angle, lower_bound_angle + 90
 
@@ -203,7 +213,8 @@ class Hybrid(BaseSpringLayout):
         """
         source = self.nodes[index]
         for i in range(self.remainder_layout_iterations):
-            sample_set = random_sample_set(self.random_sample_size, self.sample_set_size, {index})
+            sample_set = random_sample_set(
+                self.random_sample_size, self.sample_set_size, {index})
             for j in sample_set:
                 target = self.sample[j]
                 x, y = self._current_distance(source, target)

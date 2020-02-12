@@ -20,8 +20,11 @@ def random_sample_set(size: int, n: int, exclude: Set[int] = None) -> List[int]:
     """
     Randomly sample in the range 0 to n-1 to fill a set of given size.
     """
-    sample_set: Set[int] = set()
     exclude = exclude if exclude is not None else set()
+    exclude_len = len(exclude) if exclude is not None else 0
+    if size > (n - exclude_len):
+        size = n - exclude_len
+    sample_set: Set[int] = set()
     while len(sample_set) < size:
         s = sample(n, exclude)
         sample_set.add(s)
@@ -34,10 +37,13 @@ def sample(n: int, exclude: Set[int] = None) -> int:
     Return a random number in the the range 0 to n-1
     not in exclude set.
     """
-    s = random.randint(0, n - 1)
-    if exclude is None or s not in exclude:
-        return s
-    return sample(n, exclude)
+    s = None
+    while s == None:
+        s = random.randint(0, n - 1)
+        if exclude is None or s not in exclude:
+            return s
+        else:
+            s = None
 
 
 def point_on_circle(x: float, y: float, angle: float, radius: float) -> Tuple[float, float]:
@@ -81,17 +87,20 @@ def mean(lst: List[float]) -> float:
 def score_n_samples(dataset: np.ndarray, distance_fn: Callable[[np.ndarray, np.ndarray], float],
                     n: int, size: int = None) -> Tuple[np.ndarray, np.ndarray]:
     size = size if size is not None else round(math.sqrt(len(dataset)))
-    samples = np.array([random_sample_set(size, len(dataset)) for i in range(n)])
-    data_samples = np.apply_along_axis(lambda s: dataset[s], axis=1, arr=samples)
+    samples = np.array([random_sample_set(size, len(dataset))
+                        for i in range(n)])
+    data_samples = np.apply_along_axis(
+        lambda s: dataset[s], axis=1, arr=samples)
     dataset_average = get_average_datapoint(dataset)
-    averages = np.apply_along_axis(get_average_datapoint, axis=1, arr=data_samples)
+    averages = np.apply_along_axis(
+        get_average_datapoint, axis=1, arr=data_samples)
     distances = np.apply_along_axis(lambda ds: distance_fn(dataset_average, ds),
                                     axis=1, arr=averages)
     order = np.argsort(distances)
     return samples[order], distances[order]
 
 
-def show_progress(current: int, total: int, stage: str='') -> None:
+def show_progress(current: int, total: int, stage: str = '') -> None:
     if total == 0:
         return
     # Don't show over 100% progress
@@ -99,7 +108,8 @@ def show_progress(current: int, total: int, stage: str='') -> None:
     progress = percent // 5
     # if len(stage) < 10:
     #     stage += ' ' * (10 - len(stage))
-    print(f'{stage.ljust(10)} [{"=" * progress}{" " * (20 - progress)}] {percent}% ', end='\r')
+    print(
+        f'{stage.ljust(10)} [{"=" * progress}{" " * (20 - progress)}] {percent}% ', end='\r')
 
 
 def get_size(obj: Any, seen: Set[int] = None):

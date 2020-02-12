@@ -2,3 +2,4 @@ data/appdata
 top10000_app_usage7504.csv
 __pycache__
 .vscode
+data/outputs
