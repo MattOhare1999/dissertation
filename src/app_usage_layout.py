@@ -32,8 +32,8 @@ if len(sys.argv) > 3 and sys.argv[3] not in algorithms:
     print('\tAvailable algorithms: brute, chalmers96, hybrid, pivot')
     exit(1)
 
-if len(sys.argv) > 4 and int(sys.argv[4]) > 10:
-    print('\tMax number of clusters is 10, please enter a number between 1 and 10')
+if len(sys.argv) > 4 and (int(sys.argv[4]) > 10 or int(sys.argv[3]) < 1):
+    print('\tPlease enter a number of clusters between 1 and 10')
     exit(1)
 
 if len(sys.argv) > 5 and (int(sys.argv[5]) < 5 or int(sys.argv[5]) > 1000 or int(sys.argv[5]) % 5 != 0):

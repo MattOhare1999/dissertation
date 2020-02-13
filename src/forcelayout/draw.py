@@ -112,6 +112,8 @@ class DrawLayout:
                          c=point_colors, cmap=color_map)
         plt.axis('off')
 
+        print(annotate)
+
         if annotate is not None:
             self._enable_annotation(annotate=annotate,
                                     scatter=sc,

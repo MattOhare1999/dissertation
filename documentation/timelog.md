@@ -358,7 +358,16 @@
 
 *8 hours* - Removed user anomolies and improved command line arguments and error handling to give users more flexibility. Also allowed standardised euclidean distance for all algorithms and improved saving format for visualisations.
 
+## 12 Feb 2020
 
+*4 hours* - Can now show visualisations in intermediate steps in separate facets as well as just the final output. Also fixed bug preventing hybrid and pivot algorithms not working with a data set size of 100.  
+*0.5 hours* - Wrote up week 17 status report
+
+## 13 Feb 2020
+
+*2 hours* - Fixed kmeans visualisations by using it on the low dimensional data instead of the original high dimensional data. Also, using random projection, found clusters in the high dimensional original data.  
+*0.5 hours* - Planned meeting with supervisor  
+*0.5 hours* - Meeting with supervisor
 
 
 

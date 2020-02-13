@@ -6,6 +6,7 @@ import matplotlib
 from sklearn.manifold import TSNE
 import umap
 from sklearn.cluster import KMeans
+from sklearn.random_projection import GaussianRandomProjection
 
 
 def draw_spring_layout(
@@ -245,6 +246,9 @@ def _create_algorithm(
     elif algorithm is umap:
         spring_layout = umap.UMAP(
             metric=metric, min_dist=0.1, spread=0.75, metric_kwds=metric_kwds).fit_transform(dataset)
+    elif algorithm is GaussianRandomProjection:
+        spring_layout = GaussianRandomProjection(
+            n_components=2).fit_transform(dataset)
     else:
         params = _create_params(distance_fn=distance, iterations=iterations,
                                 target_node_speed=target_node_speed)
