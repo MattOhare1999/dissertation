@@ -52,9 +52,10 @@ print(
 
 start = time.time()
 
-k = KMeans(n_clusters=clusters).fit_predict(app_usage)
 embedding = umap.UMAP(metric=metric, min_dist=0.1,
                       spread=0.75, metric_kwds=variance_dict).fit(app_usage)
+k = KMeans(n_clusters=clusters).fit_predict(
+    embedding.transform(app_usage))
 
 if type_visual == "normal":
     umap.plot.points(embedding,
