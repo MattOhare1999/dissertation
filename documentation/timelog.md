@@ -369,5 +369,13 @@
 *0.5 hours* - Planned meeting with supervisor  
 *0.5 hours* - Meeting with supervisor
 
+## 14 Feb 2020
+
+*6 hours* - Implemented option to colour clusters based on either their positions in high dimensional or low dimensional space. Improved command line argument error handling and implemented an option for UMAP visualisation to be viewed in 3D.
+
+## 15 Feb 2020
+
+*0.5 hours* - Wrote up meeting minutes
+
 
 

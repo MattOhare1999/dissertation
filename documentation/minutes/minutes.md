@@ -152,6 +152,16 @@ The main points taken away to work on was to investigate kmeans to find natural 
 Since I had not made much progress this week, it was a quick meeting. Matthew emphasised the point of time management and making good use of my time in the upcoming weekes. He suggested that I look at what coursework and other university work I have coming up and plan around it to make sure I do not run out of time when writing the dissertation.
 
 
+## Meeting 18 - 13th February 2020, 14:00-14:30 (Skype Call)
+
+* On call - Matthew James O'Hare, Professor Matthew Chalmers
+
+Started the call by giving an update on my progress. Matthew explained that once I was settled with my parameters and algorithms, the next step was to invetigate what these visualisations tell us about the data itself - what patterns/trends are there within the data, outliers etc (what makes them different to the rest/why) - these are all good points to talk about when writing the dissertation and could be a potential chapter. Matthew suggested that I now map out each chapter so I have a clear plan of what I want to talk about in each - plan/develop/create a story!
+
+I asked Matthew what is better - showing high dimensional or low dimensional clusters. He replied that high dimensional clusters gives us unbiased clusters that are not dependent on the algorithm used where as low dimensional clusters are more post processing (since they show clusters based on where the algorithm has plotted each point). They both provide valid points to talk about and can compare them however when using high dimensional clusters, this allows us to analyse and compare how different algorithms plot the same clusters in different ways and positions.
+
+Matthew stressed on being objective when writing the dissertation though. He stated that it is not up to me to push or prove an opinion on the best algorithm, the most important thing is to simply present my findings and compare them and allow the reader to create their own opinion.
+
 
 
 

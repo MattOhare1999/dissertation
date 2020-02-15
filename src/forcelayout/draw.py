@@ -39,7 +39,6 @@ class DrawLayout:
         global isTsne
         isTsne = False
 
-        ##colors, cmap = self._get_colors(color_by, color_map)
         sc = plt.scatter(x, y, s=size, alpha=alpha,
                          c=point_colors, cmap=color_map)
         plt.axis("off")
@@ -74,7 +73,6 @@ class DrawLayout:
         global isTsne
         isTsne = False
 
-        ##colors, cmap = self._get_colors(color_by, color_map)
         plt.subplot(scatter_pos[current_plot-1])
         sc = plt.scatter(x, y, s=size, alpha=alpha,
                          c=point_colors, cmap=color_map)
@@ -112,8 +110,6 @@ class DrawLayout:
                          c=point_colors, cmap=color_map)
         plt.axis('off')
 
-        print(annotate)
-
         if annotate is not None:
             self._enable_annotation(annotate=annotate,
                                     scatter=sc,
@@ -144,13 +140,11 @@ class DrawLayout:
         global isTsne
         isTsne = True
 
-        ##colors, cmap = self._get_colors(color_by, color_map)
         plt.subplot(scatter_pos[current_plot-1])
         sc = plt.scatter(x, y, s=size, alpha=alpha,
                          c=point_colors, cmap=color_map)
         label = str(current_iters) + " Iterations"
         plt.title(label)
-        # plt.axis("off")
 
         if annotate is not None:
             self._enable_annotation(annotate=annotate,

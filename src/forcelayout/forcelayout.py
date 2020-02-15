@@ -27,6 +27,7 @@ def draw_spring_layout(
         annotate: Callable[[Node, int], str] = None,
         algorithm_highlights: bool = False,
         target_node_speed: float = None,
+        high_dimensional: bool = False,
         show_progression: bool = False,
         clusters: int = 4) -> BaseSpringLayout:
     """
@@ -73,8 +74,11 @@ def draw_spring_layout(
             draw_layout = DrawLayout(
                 dataset=dataset, spring_layout=spring_layout)
             spring_layout.spring_layout(return_after=current)
-            point_colors = KMeans(n_clusters=clusters).fit_predict(
-                spring_layout.get_positions())
+            if high_dimensional:
+                point_colors = KMeans(n_clusters=clusters).fit_predict(dataset)
+            else:
+                point_colors = KMeans(n_clusters=clusters).fit_predict(
+                    spring_layout.get_positions())
             draw_layout.draw_facets(alpha=alpha, current_plot=i, current_iters=current*i, **_create_params(color_by=color_by, color_map=color_map, point_colors=point_colors,
                                                                                                            annotate=annotate, size=size,
                                                                                                            algorithm_highlights=algorithm_highlights))
@@ -85,8 +89,11 @@ def draw_spring_layout(
             dataset=dataset, spring_layout=spring_layout)
         spring_layout.spring_layout()
         # print(spring_layout.average_speed())
-        point_colors = KMeans(n_clusters=clusters).fit_predict(
-            spring_layout.get_positions())
+        if high_dimensional:
+            point_colors = KMeans(n_clusters=clusters).fit_predict(dataset)
+        else:
+            point_colors = KMeans(n_clusters=clusters).fit_predict(
+                spring_layout.get_positions())
         draw_layout.draw(alpha=alpha, **_create_params(color_by=color_by, color_map=color_map, point_colors=point_colors,
                                                        annotate=annotate, size=size,
                                                        algorithm_highlights=algorithm_highlights))

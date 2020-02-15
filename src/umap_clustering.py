@@ -10,16 +10,29 @@ import matplotlib.pyplot as plt
 from forcelayout.forcelayout import _create_algorithm
 from sklearn.cluster import KMeans
 from forcelayout import DrawLayout
+from mpl_toolkits.mplot3d import Axes3D
+
+options = {
+    'true': True,
+    'false': False
+}
+
+metrics = ['euclidean', 'seuclidean', 'hamming']
+
+visuals = ['default', 'connectivity',
+           'diagnostic', 'interactive1', 'interactive2', '3d']
 
 
-def save_visualisation(plt, type_visual, top_apps, data_set_size, metric, clusters, total):
-    if type_visual == "kmeans":
-        plt.savefig('../data/outputs/umap_plots/%s_%dapps_%dentries_%s_%dclusters_%.0fs.jpg' %
-                    (type_visual, top_apps, data_set_size, metric, clusters, total))
-    else:
-        plt.savefig('../data/outputs/umap_plots/%s_%dapps_%dentries_%s_%.0fs.jpg' %
-                    (type_visual, top_apps, data_set_size, metric, total))
+def save_visualisation(plt, type_visual, top_apps, data_set_size, metric, high_dimensional, clusters, total):
+    plt.savefig('../data/outputs/umap_plots/%s_%dapps_%dentries_%s_%r%dclusters_%.0fs.jpg' %
+                (type_visual, top_apps, data_set_size, metric, high_dimensional, clusters, total))
     return
+
+
+def umap_embedding(app_usage, metric, dimensions, variance_dict):
+    embedding = umap.UMAP(metric=metric, min_dist=0.1, n_components=dimensions,
+                          spread=0.75, metric_kwds=variance_dict).fit(app_usage)
+    return embedding
 
 
 def get_time(start):
@@ -27,18 +40,40 @@ def get_time(start):
 
 
 if len(sys.argv) < 3:
-    print(f'\nusage: python3 umap_clustering.py <num apps> <dataset size> <metric> <type> *IF KMEANS* <clusters>')
+    print(f'\nusage: python3 umap_clustering.py *REQUIRED* <num apps> <dataset size> *OPTIONAL* <metric> <type> <high dimensional> <clusters>')
     print('\tApps: see datasets/app_usage')
     print('\tSizes: see datasets/app_usage')
     print('\tMetric: euclidean, seuclidean, hamming')
-    print('\tType: normal, connectivity, diagnostic, kmeans, interactive')
+    print('\tType: default, connectivity, diagnostic, interactive1, interactive2, 3d')
+    print('\tHigh dimensional clusters: true, false')
+    print('\tClsuters: 1 - 10')
     exit(1)
+
+if len(sys.argv) > 3 and sys.argv[3].lower() not in metrics:
+    print('\tAvailable metrics: euclidean, seuclidean, hamming')
+    exit(1)
+
+if len(sys.argv) > 4 and sys.argv[4].lower() not in visuals:
+    print('\tAvailable options for type: default, connectivity, diagnostic, interactive1, interactive2')
+    exit(1)
+
+if len(sys.argv) > 5 and sys.argv[5].lower() not in options:
+    print('\tAvailable options for high dimensional clusters: true, false')
+    exit(1)
+
+if len(sys.argv) > 6 and (int(sys.argv[6]) > 10 or int(sys.argv[6]) < 1):
+    print('\tPlease enter a number of clusters between 1 and 10')
+    exit(1)
+
+start = time.time()
 
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
 metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'euclidean'
-type_visual = sys.argv[4].lower() if len(sys.argv) > 4 else 'normal'
-clusters = int(sys.argv[5]) if len(sys.argv) > 5 else 4
+type_visual = sys.argv[4].lower() if len(sys.argv) > 4 else 'default'
+high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'false'
+clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 4
+high_dimensional = options[high_dimensional_text]
 app_usage = load_app_usage(top_apps, data_set_size)
 user_ids = load_id(top_apps, data_set_size)
 user_ids = pd.DataFrame({'ID': user_ids})
@@ -48,66 +83,87 @@ variance_dict = {}
 variance_dict['V'] = variance[0]
 
 print(
-    f"Creating {type_visual} layout of {len(app_usage)} app usage entries using a metric of {metric}")
+    f"Creating {type_visual} layout of {len(app_usage)} app usage entries using a metric of {metric} with {clusters} clusters. High dimensional clusters - {high_dimensional}")
 
-start = time.time()
+fig = plt.figure()
 
-embedding = umap.UMAP(metric=metric, min_dist=0.1,
-                      spread=0.75, metric_kwds=variance_dict).fit(app_usage)
-k = KMeans(n_clusters=clusters).fit_predict(
-    embedding.transform(app_usage))
+if type_visual == '3d':
+    embedding = umap_embedding(app_usage, metric, 3, variance_dict)
+    points = embedding.transform(app_usage)
 
-if type_visual == "normal":
-    umap.plot.points(embedding,
-                     values=embedding.transform(app_usage)[:, 0],
-                     cmap='inferno',
-                     height=800,
-                     width=800)
-    total = get_time(start)
-    save_visualisation(plt, type_visual, top_apps,
-                       data_set_size, metric, clusters, total)
-elif type_visual == "connectivity":
-    umap.plot.connectivity(embedding, show_points=True,
-                           height=1600, width=1600, edge_bundling='hammer')
-    total = get_time(start)
-    save_visualisation(plt, type_visual, top_apps,
-                       data_set_size, metric, clusters, total)
-elif type_visual == "diagnostic":
-    umap.plot.diagnostic(embedding, diagnostic_type="neighborhood")
-    total = get_time(start)
-    save_visualisation(plt, type_visual, top_apps,
-                       data_set_size, metric, clusters, total)
-elif type_visual == "kmeans":
-    spring_layout = _create_algorithm(
-        dataset=app_usage, algorithm=umap, distance=app_usage_distance, metric=metric, metric_kwds=variance_dict)
+    k = KMeans(n_clusters=clusters).fit_predict(points)
 
-    draw_layout = DrawLayout(dataset=app_usage, spring_layout=spring_layout)
-
-    draw_layout.draw_umap(
-        data=embedding,
-        dataset=app_usage,
-        alpha=0.7,
-        point_colors=k,
-        annotate=annotate_app_usage,
-        algorithm_highlights=True)
+    ax = fig.add_subplot(111, projection='3d')
+    ax.scatter(points[:, 0], points[:, 1], points[:, 2], c=k, s=100)
 
     total = get_time(start)
     save_visualisation(plt, type_visual, top_apps,
-                       data_set_size, metric, clusters, total)
+                       data_set_size, metric, high_dimensional, clusters, total)
 
-elif type_visual == "interactive":
-    total = get_time(start)
-    umap.plot.output_file('../data/outputs/umap_plots/%s_%dapps_%dentries_%s_%.0fs.html' %
-                          (type_visual, top_apps, data_set_size, metric, total))
 
-    p = umap.plot.interactive(embedding,
-                              values=embedding.transform(app_usage)[:, 0],
-                              hover_data=user_ids,
-                              cmap='inferno',
-                              height=800,
-                              width=800)
+else:
+    embedding = umap_embedding(app_usage, metric, 2, variance_dict)
+    points = embedding.transform(app_usage)
+    if high_dimensional:
+        k = KMeans(n_clusters=clusters).fit_predict(app_usage)
+    else:
+        k = KMeans(n_clusters=clusters).fit_predict(points)
 
-    umap.plot.show(p)
+    if type_visual == "default":
+        umap.plot.points(embedding,
+                         values=k,
+                         cmap='jet',
+                         height=800,
+                         width=800)
+        total = get_time(start)
+        save_visualisation(plt, type_visual, top_apps,
+                           data_set_size, metric, high_dimensional, clusters, total)
+
+    elif type_visual == "connectivity":
+        umap.plot.connectivity(embedding, show_points=True,
+                               height=1600, width=1600, edge_bundling='hammer')
+        total = get_time(start)
+        save_visualisation(plt, type_visual, top_apps,
+                           data_set_size, metric, high_dimensional, clusters, total)
+
+    elif type_visual == "diagnostic":
+        umap.plot.diagnostic(embedding, diagnostic_type="neighborhood")
+        total = get_time(start)
+        save_visualisation(plt, type_visual, top_apps,
+                           data_set_size, metric, high_dimensional, clusters, total)
+
+    elif type_visual == "interactive1":
+        spring_layout = _create_algorithm(
+            dataset=app_usage, algorithm=umap, distance=app_usage_distance, metric=metric, metric_kwds=variance_dict)
+
+        draw_layout = DrawLayout(
+            dataset=app_usage, spring_layout=spring_layout)
+
+        draw_layout.draw_umap(
+            data=embedding,
+            dataset=app_usage,
+            alpha=0.7,
+            point_colors=k,
+            annotate=annotate_app_usage,
+            algorithm_highlights=True)
+
+        total = get_time(start)
+        save_visualisation(plt, type_visual, top_apps,
+                           data_set_size, metric, high_dimensional, clusters, total)
+
+    elif type_visual == "interactive2":
+        total = get_time(start)
+        umap.plot.output_file('../data/outputs/umap_plots/%s_%dapps_%dentries_%s_%r%dclusters_%.0fs.html' %
+                              (type_visual, top_apps, data_set_size, metric, high_dimensional, clusters, total))
+
+        p = umap.plot.interactive(embedding,
+                                  values=k,
+                                  hover_data=user_ids,
+                                  cmap='inferno',
+                                  height=800,
+                                  width=800)
+
+        umap.plot.show(p)
 
 print(f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')
 
