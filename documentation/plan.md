@@ -28,10 +28,10 @@ Week-by-week plan for the whole project.
 
 * **Week 13 - 06th Jan** Decide on the most appropriate metric.  
 * **Week 14 - 13th Jan** Use this metric with different spring model algorithms.  
-* **Week 15 - 20th Jan** Decide on the most appropriate spring model algorithm.  
-* **Week 16** Analysis and evaluation of the created visualisation.  
-* **Week 17** Analysis and evaluation of the created visualisation.  
-* **Week 18** Use detailed process with another data set.  
+* **Week 15 - 20th Jan** Identify the most appropriate spring model algorithms.  
+* **Week 16** Compare visualisations of mutliple algorithms.  
+* **Week 17** Analysis and evaluation of the created visualisations.  
+* **Week 18** Analysis and evaluation of the created visualisations.  
 * **Week 19** Begin write up of dissertation - Introduction.  
 * **Week 20** Continue write up of dissertation - Background.  
 * **Week 21** Continue write up of dissertation - Analysis/Requirements, Design.  
