@@ -1,12 +1,14 @@
 import sys
-import numpy as numpy
 import time
-from forcelayout.algorithms import BaseSpringLayout
+
+import matplotlib.pyplot as plt
+import numpy as numpy
 from sklearn.cluster import KMeans
 from sklearn.random_projection import GaussianRandomProjection
-from app_usage_utils import load_app_usage, annotate_app_usage
-import matplotlib.pyplot as plt
+
+from app_usage_utils import annotate_app_usage, load_app_usage
 from forcelayout import DrawLayout
+from forcelayout.algorithms import BaseSpringLayout
 from forcelayout.forcelayout import _create_algorithm
 
 if len(sys.argv) < 3:

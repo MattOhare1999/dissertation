@@ -1,8 +1,9 @@
-from typing import Set, List, Tuple, Callable, Any, DefaultDict
-from collections import defaultdict
-import random
 import math
+import random
 import sys
+from collections import defaultdict
+from typing import Any, Callable, DefaultDict, List, Set, Tuple
+
 import numpy as np
 
 

@@ -1,10 +1,14 @@
-from app_usage_utils import load_app_usage, app_usage_distance, annotate_app_usage
-import matplotlib.pyplot as plt
-import forcelayout as fl
-import time
 import sys
+import time
+
+import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.cluster import KMeans
+
+import forcelayout as fl
+from app_usage_utils import (annotate_app_usage, app_usage_distance,
+                             load_app_usage)
+from forcelayout.metrics import LayoutMetrics
 
 algorithms = {
     'brute': fl.SpringForce,
@@ -65,7 +69,6 @@ app_usage = load_app_usage(top_apps, data_set_size)
 print(
     f"Creating layout of {len(app_usage)} app usage entries using {algorithm_text} algorithm with {iterations} iterations and {clusters} clusters. High dimensional clusters - {high_dimensional}, Intermediate Steps - {intermediate_steps}")
 
-plt.figure(figsize=(16.0, 16.0))
 spring_layout = fl.draw_spring_layout(dataset=app_usage,
                                       distance=app_usage_distance,
                                       iterations=iterations,

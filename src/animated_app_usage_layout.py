@@ -1,7 +1,10 @@
-from app_usage_utils import load_app_usage, app_usage_distance, annotate_app_usage
-import matplotlib.pyplot as plt
-import forcelayout as fl
 import sys
+
+import matplotlib.pyplot as plt
+
+import forcelayout as fl
+from app_usage_utils import (annotate_app_usage, app_usage_distance,
+                             load_app_usage)
 
 algorithms = {
     'brute': fl.SpringForce,

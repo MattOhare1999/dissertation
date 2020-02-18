@@ -1,12 +1,14 @@
+import math
+from enum import Enum
+from typing import Callable, List, Tuple
+
+import numpy as np
+
+from ..distance import euclidean
+from ..utils import point_on_circle, random_sample_set, show_progress
 from .base_spring_layout import BaseSpringLayout
 from .neighbour_sampling import NeighbourSampling
 from .node import Node
-from ..utils import point_on_circle, random_sample_set, show_progress
-from ..distance import euclidean
-from typing import Callable, Tuple, List
-from enum import Enum
-import numpy as np
-import math
 
 
 class HybridStage(Enum):

@@ -1,9 +1,10 @@
-import numpy as np
 import os
+
+import numpy as np
 from scipy.spatial import distance
 
 variance = []
-global user_ids
+user_ids = []
 
 
 def load_file(name, dtype):

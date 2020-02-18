@@ -1,12 +1,18 @@
-from .algorithms import BaseSpringLayout, Pivot, NeighbourSampling, Hybrid, SpringForce, Node
-from .draw import DrawLayout
-from typing import Callable, Dict, Any, List, Optional
-import numpy as np
+from typing import Any, Callable, Dict, List, Optional
+
 import matplotlib
-from sklearn.manifold import TSNE
+import matplotlib.pyplot as plt
+import numpy as np
 import umap
 from sklearn.cluster import KMeans
+from sklearn.manifold import TSNE
 from sklearn.random_projection import GaussianRandomProjection
+
+from forcelayout.metrics import LayoutMetrics
+
+from .algorithms import (BaseSpringLayout, Hybrid, NeighbourSampling, Node,
+                         Pivot, SpringForce)
+from .draw import DrawLayout
 
 
 def draw_spring_layout(
@@ -68,6 +74,24 @@ def draw_spring_layout(
                                       distance,
                                       target_node_speed)
 
+    metrics = LayoutMetrics(spring_layout=spring_layout)
+    metrics.measure()
+    print(" ")
+    print("Average Iteration Time: ", metrics.get_average_iteration_time())
+    print("Runtime: ", metrics.get_run_time())
+    print("Max Memory: ", metrics.get_max_memory())
+    print("Stress: ", metrics.get_stress())
+
+    # Plot memory
+    # plt.figure(figsize=(8.0, 8.0))
+    # plt.plot(metrics.memory.values(), 'b-+', label="Hello")
+
+    # Plot average node speed
+    plt.figure(figsize=(8.0, 8.0))
+    plt.plot(metrics.avg_node_speed, 'b-+')
+    plt.ylabel("Average Node Speed")
+    plt.xlabel("Iterations")
+
     if show_progression:
         for i in range(1, 6):
             current = int(iterations/5)
@@ -85,10 +109,11 @@ def draw_spring_layout(
         return spring_layout
 
     else:
+        plt.figure(figsize=(16.0, 16.0))
         draw_layout = DrawLayout(
             dataset=dataset, spring_layout=spring_layout)
         spring_layout.spring_layout()
-        # print(spring_layout.average_speed())
+
         if high_dimensional:
             point_colors = KMeans(n_clusters=clusters).fit_predict(dataset)
         else:
@@ -97,6 +122,7 @@ def draw_spring_layout(
         draw_layout.draw(alpha=alpha, **_create_params(color_by=color_by, color_map=color_map, point_colors=point_colors,
                                                        annotate=annotate, size=size,
                                                        algorithm_highlights=algorithm_highlights))
+        # draw_layout.save('../data/outputs/spring_models_plots')
         return spring_layout
 
 

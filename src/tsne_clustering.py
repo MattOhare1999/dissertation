@@ -1,18 +1,21 @@
 import sys
 import time
+
+import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from sklearn.cluster import KMeans
 from sklearn.manifold import TSNE
-from app_usage_utils import load_app_usage, annotate_app_usage, app_usage_distance, get_variance
-import matplotlib.pyplot as plt
+
 import forcelayout
+from app_usage_utils import (annotate_app_usage, app_usage_distance,
+                             get_variance, load_app_usage)
 from forcelayout import DrawLayout
 from forcelayout.algorithms import BaseSpringLayout
 from forcelayout.forcelayout import _create_algorithm
-from sklearn.cluster import KMeans
 
 
-def tsne_embedding(app_usage, iterations, random_state, metric):
+def tsne_embedding(app_usage, iterations, metric, i, random_state=None):
     embedding = TSNE(n_iter=int(iterations/i), random_state=random_state, metric=metric,
                      perplexity=50).fit_transform(app_usage)
     return embedding
@@ -76,7 +79,7 @@ if intermediate_steps == True:
     step = iterations/5
     for i in range(1, 6):
         embedding = tsne_embedding(
-            app_usage, int(step*i), random_state, metric)
+            app_usage, int(step*i), metric, i, random_state)
         if high_dimensional:
             k = KMeans(n_clusters=clusters).fit_predict(app_usage)
         else:
@@ -95,7 +98,7 @@ if intermediate_steps == True:
             annotate=annotate_app_usage,
             algorithm_highlights=True)
 else:
-    embedding = tsne_embedding(app_usage, iterations, random_state, metric)
+    embedding = tsne_embedding(app_usage, iterations, metric, 1)
     if high_dimensional:
         k = KMeans(n_clusters=clusters).fit_predict(app_usage)
     else:

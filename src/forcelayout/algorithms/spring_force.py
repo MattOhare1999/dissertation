@@ -1,17 +1,21 @@
-from .base_spring_layout import BaseSpringLayout
-from forcelayout.distance import euclidean
 from itertools import combinations
 from typing import Callable
+
 import numpy as np
+
+from forcelayout.distance import euclidean
+
+from .base_spring_layout import BaseSpringLayout
 
 
 class SpringForce(BaseSpringLayout):
     """
     Basic brute force spring layout implementation
     """
+
     def __init__(self, dataset: np.ndarray,
                  distance_fn: Callable[[np.ndarray, np.ndarray], float] = euclidean,
-                 iterations: int = 50, target_node_speed: float=0.0,
+                 iterations: int = 50, target_node_speed: float = 0.0,
                  enable_cache: bool = False) -> None:
         super().__init__(dataset=dataset, distance_fn=distance_fn, iterations=iterations,
                          target_node_speed=target_node_speed, enable_cache=enable_cache)

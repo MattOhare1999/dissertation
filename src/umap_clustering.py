@@ -1,16 +1,19 @@
 import sys
+import time
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import umap
-import umap.plot
-import time
 import seaborn as sns
-from app_usage_utils import load_app_usage, load_id, app_usage_distance, annotate_app_usage, get_variance
-import matplotlib.pyplot as plt
-from forcelayout.forcelayout import _create_algorithm
-from sklearn.cluster import KMeans
-from forcelayout import DrawLayout
+import umap  # fix this import
+import umap.plot
 from mpl_toolkits.mplot3d import Axes3D
+from sklearn.cluster import KMeans
+
+from app_usage_utils import (annotate_app_usage, app_usage_distance,
+                             get_variance, load_app_usage, load_id)
+from forcelayout import DrawLayout
+from forcelayout.forcelayout import _create_algorithm
 
 options = {
     'true': True,
@@ -85,9 +88,8 @@ variance_dict['V'] = variance[0]
 print(
     f"Creating {type_visual} layout of {len(app_usage)} app usage entries using a metric of {metric} with {clusters} clusters. High dimensional clusters - {high_dimensional}")
 
-fig = plt.figure()
-
 if type_visual == '3d':
+    fig = plt.figure()
     embedding = umap_embedding(app_usage, metric, 3, variance_dict)
     points = embedding.transform(app_usage)
 
@@ -133,6 +135,7 @@ else:
                            data_set_size, metric, high_dimensional, clusters, total)
 
     elif type_visual == "interactive1":
+        plt.figure()
         spring_layout = _create_algorithm(
             dataset=app_usage, algorithm=umap, distance=app_usage_distance, metric=metric, metric_kwds=variance_dict)
 

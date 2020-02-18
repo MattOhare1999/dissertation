@@ -1,9 +1,11 @@
+from typing import Callable, Dict, List
+
+import numpy as np
+
+from ..distance import euclidean
+from ..utils import random_sample_set, show_progress
 from .base_spring_layout import BaseSpringLayout
 from .node import Node
-from ..utils import random_sample_set, show_progress
-from ..distance import euclidean
-from typing import Callable, List, Dict
-import numpy as np
 
 
 class NeighbourSampling(BaseSpringLayout):

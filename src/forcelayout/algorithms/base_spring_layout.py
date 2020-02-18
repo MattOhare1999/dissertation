@@ -1,11 +1,13 @@
-from .node import Node
-from ..utils import jiggle, get_size, mean
-from ..distance import euclidean
-from itertools import combinations
-from typing import Callable, Tuple, List, Dict, FrozenSet
-from abc import ABC, abstractmethod
-import numpy as np
 import math
+from abc import ABC, abstractmethod
+from itertools import combinations
+from typing import Callable, Dict, FrozenSet, List, Tuple
+
+import numpy as np
+
+from ..distance import euclidean
+from ..utils import get_size, jiggle, mean
+from .node import Node
 
 
 class BaseSpringLayout(ABC):

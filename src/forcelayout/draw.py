@@ -1,13 +1,16 @@
-from .algorithms import BaseSpringLayout, Node, NeighbourSampling, Hybrid, Pivot
-from typing import Callable, Tuple, List, Optional, FrozenSet, Dict
-from matplotlib.animation import FuncAnimation as Animation
-import matplotlib.pyplot as plt
-import seaborn as sns
-import numpy as np
 import logging
+from typing import Callable, Dict, FrozenSet, List, Optional, Tuple
+
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+from matplotlib.animation import FuncAnimation as Animation
+
+from .algorithms import (BaseSpringLayout, Hybrid, NeighbourSampling, Node,
+                         Pivot)
 
 ColorMap = plt.cm
-global isTsne
+notSpring: bool = None
 
 
 class DrawLayout:
@@ -36,8 +39,8 @@ class DrawLayout:
         x = pos[:, 0]
         y = pos[:, 1]
 
-        global isTsne
-        isTsne = False
+        global notSpring
+        notSpring = False
 
         sc = plt.scatter(x, y, s=size, alpha=alpha,
                          c=point_colors, cmap=color_map)
@@ -70,8 +73,8 @@ class DrawLayout:
         x = pos[:, 0]
         y = pos[:, 1]
 
-        global isTsne
-        isTsne = False
+        global notSpring
+        notSpring = False
 
         plt.subplot(scatter_pos[current_plot-1])
         sc = plt.scatter(x, y, s=size, alpha=alpha,
@@ -102,8 +105,8 @@ class DrawLayout:
         x = data[:, 0]
         y = data[:, 1]
 
-        global isTsne
-        isTsne = True
+        global notSpring
+        notSpring = True
 
         # Draw plot
         sc = plt.scatter(x, y, s=size, alpha=alpha,
@@ -137,8 +140,8 @@ class DrawLayout:
         x = data[:, 0]
         y = data[:, 1]
 
-        global isTsne
-        isTsne = True
+        global notSpring
+        notSpring = True
 
         plt.subplot(scatter_pos[current_plot-1])
         sc = plt.scatter(x, y, s=size, alpha=alpha,
@@ -169,8 +172,8 @@ class DrawLayout:
         x = data.transform(dataset)[:, 0]
         y = data.transform(dataset)[:, 1]
 
-        global isTsne
-        isTsne = True
+        global notSpring
+        notSpring = True
 
         # Draw plot
         sc = plt.scatter(x, y, s=size, alpha=alpha,
@@ -269,9 +272,9 @@ class DrawLayout:
             pos = scatter.get_offsets()[ind["ind"][0]]
             annot.xy = pos
 
-            global isTsne
+            global notSpring
 
-            if isTsne == False:
+            if notSpring == False:
                 text = ", ".join([
                     annotate(self.spring_layout.nodes[n], n)
                     for n in ind["ind"][:5]
