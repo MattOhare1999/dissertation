@@ -379,12 +379,17 @@
 
 ## 17 Feb 2020
 
-*1 hour* - Finalised dissertation headings and plan.
+*1 hour* - Finalised dissertation headings and plan.  
 *1 hour* - Looked at plotting velocity against iterations for spring models - some progress
 
 ## 18 Feb 2020
 
-*2 hours* - Completed plotting velocity against iterations for spring models as well as displaying other metrics. Tidied up imports and files.
+*2 hours* - Completed plotting velocity against iterations for spring models as well as displaying other metrics. Tidied up imports and files.  
+*2 hours* - Started write up of implementation section
 
+## 19 Feb 2020
+
+*3 hours* - Continued write up of implementation section
+*0.5 hours* - Wrote up week 18 status report
 
 

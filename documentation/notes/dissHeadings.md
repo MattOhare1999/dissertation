@@ -16,6 +16,8 @@
  * Technologies
   * Python 3.7
   * NumPy
+  * Pandas
+  * Seaborn
   * Matplotlib
   * Sklearn
  * Summary
