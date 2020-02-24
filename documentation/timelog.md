@@ -392,4 +392,21 @@
 *3 hours* - Continued write up of implementation section
 *0.5 hours* - Wrote up week 18 status report
 
+## 20 Feb 2020
+
+*2 hours* - Fixed and retrieved some graphs for data pre-processing section in dissertation
+
+## 21 Feb 2020
+
+*0.5 hours* - Planned meeting with supervisor
+*0.5 hours* - Meeting with supervisor
+*3 hours* - Continued write up of implementation section
+
+## 22 Feb 2020
+
+*2 hour* - More writing - implementation
+
+## 24 Feb 2020
+
+
 

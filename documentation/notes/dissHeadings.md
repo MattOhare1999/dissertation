@@ -29,7 +29,7 @@
   * Comparing different ones etc
  * Finding Clusters/Clustering  
   * Kmeans - Talk about high and low dimensional clusters
- * Dimension Reduiction Algorithms  
+ * Dimension Reduction Algorithms  
   * Random Projection
   * Spring Models  
    * Chalmers96  
