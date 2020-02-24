@@ -162,6 +162,11 @@ I asked Matthew what is better - showing high dimensional or low dimensional clu
 
 Matthew stressed on being objective when writing the dissertation though. He stated that it is not up to me to push or prove an opinion on the best algorithm, the most important thing is to simply present my findings and compare them and allow the reader to create their own opinion.
 
+## Meeting 19 - 21st February 2020, 14:00-14:30 (Skype Call)
+
+* On call - Matthew James O'Hare, Professor Matthew Chalmers
+
+Meeting was pushed back a day due to something coming up. Another quick meeting as I am focusing on the write up at the moment, the code is just about complete which I told Matthew I will show him next week in our face to face meeting. Matthew suggested that when I finish a chapter or section that I send it over to him for some feedback. He also recommended that I make sure I cover everything in the implementation section and justify my decisions.
 
 
 
