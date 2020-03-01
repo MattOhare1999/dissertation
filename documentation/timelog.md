@@ -408,5 +408,6 @@
 
 ## 24 Feb 2020
 
+*0.5 hours* - Wrote up meeting minutes
 
 
