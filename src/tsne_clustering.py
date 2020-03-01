@@ -35,7 +35,7 @@ if len(sys.argv) < 3:
     print('\tMetric: euclidean, hamming')
     print('\tIterations: Multiple of 5 between 250 and 5000. 1250 if next argument is true.')
     print('\tHigh Dimensional Clusters: true, false')
-    print('\tClsuters: 1 - 10')
+    print('\tClusters: 1 - 10')
     print('\tIntermediate Steps: true, false')
     exit(1)
 
@@ -62,7 +62,7 @@ top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
 metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'euclidean'
 iterations = int(sys.argv[4]) if len(sys.argv) > 4 else 1000
-high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'false'
+high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'true'
 clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 4
 intermediate_steps_text = sys.argv[7].lower() if len(sys.argv) > 7 else 'false'
 high_dimensional = options[high_dimensional_text]

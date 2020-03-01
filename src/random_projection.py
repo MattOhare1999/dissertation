@@ -44,8 +44,8 @@ draw_layout.draw_tsne(data=embedding, alpha=0.7, point_colors=k,
 
 total = time.time() - start
 
-plt.savefig("../data/outputs/high_dimensional_plots/%dapps_%dentries_%.0fs.jpg" %
-            (top_apps, data_set_size, total))
+plt.savefig("../data/outputs/high_dimensional_plots/%dapps_%dentries_%dclusters_%.0fs.jpg" %
+            (top_apps, data_set_size, clusters, total))
 
 print(
     f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')

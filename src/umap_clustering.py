@@ -49,7 +49,7 @@ if len(sys.argv) < 3:
     print('\tMetric: euclidean, seuclidean, hamming')
     print('\tType: default, connectivity, diagnostic, interactive1, interactive2, 3d')
     print('\tHigh dimensional clusters: true, false')
-    print('\tClsuters: 1 - 10')
+    print('\tClusters: 1 - 10')
     exit(1)
 
 if len(sys.argv) > 3 and sys.argv[3].lower() not in metrics:
@@ -74,7 +74,7 @@ top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
 metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'euclidean'
 type_visual = sys.argv[4].lower() if len(sys.argv) > 4 else 'default'
-high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'false'
+high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'true'
 clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 4
 high_dimensional = options[high_dimensional_text]
 app_usage = load_app_usage(top_apps, data_set_size)

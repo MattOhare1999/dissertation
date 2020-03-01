@@ -29,7 +29,7 @@ if len(sys.argv) < 3:
     print('\tAvailable algorithms: brute, chalmers96, hybrid, pivot')
     print('\tHigh Dimensional: true, false')
     print('\tClusters: 1 - 10')
-    print('\tIterationns: Multiple of 5 between 50 and 1000')
+    print('\tIterations: Multiple of 5 between 50 and 1000')
     print('\tIntermediate_steps: true, false')
     exit(1)
 
@@ -57,9 +57,9 @@ start = time.time()
 
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
-algorithm_text = sys.argv[3].lower() if len(sys.argv) > 3 else 'chalmers96'
+algorithm_text = sys.argv[3].lower() if len(sys.argv) > 3 else 'pivot'
 iterations = int(sys.argv[4]) if len(sys.argv) > 4 else 50
-high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'false'
+high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'true'
 clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 4
 intermediate_steps_text = sys.argv[7].lower() if len(sys.argv) > 7 else 'false'
 algorithm = algorithms[algorithm_text]
