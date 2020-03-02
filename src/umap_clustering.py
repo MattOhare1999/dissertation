@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import umap  # fix this import
+import umap
 import umap.plot
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.cluster import KMeans
@@ -72,7 +72,7 @@ start = time.time()
 
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
-metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'euclidean'
+metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'seuclidean'
 type_visual = sys.argv[4].lower() if len(sys.argv) > 4 else 'default'
 high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'true'
 clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 4

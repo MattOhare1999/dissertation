@@ -408,6 +408,28 @@
 
 ## 24 Feb 2020
 
-*0.5 hours* - Wrote up meeting minutes
+*0.5 hours* - Wrote up meeting minutes  
+*5 hours* - Continued write up of implementation
+
+## 26 Feb 2020
+
+*0.5 hours* - Wrote up week 19 status report
+
+## 27 Feb 2020
+
+*0.5 hours* - Planned meeting with supervisor  
+*0.5 hours* - Meeting with supervisor
+
+##  29 Feb 2020
+
+*6 hours* - Completed implementation first draft and sent to supervisor
+
+## 01 Mar 2020
+
+*1 hour* - Few bug and spelling error fixes in the code base
+
+## 02 Mar 2020
+
+*1 hour* - Wrote up meeting minutes and updated timelog
 
 
