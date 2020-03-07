@@ -7,8 +7,17 @@
 
 * Background  
  * Related Work/Previous Projects
+ * Algorithms
+  * Random Projection
+  * Spring Models
+  * t-SNE
+  * UMAP
  * Dataset
   * App Usage
+ * Performance
+  * Visual Layout/Structure
+  * Runtime
+  * Memory Usage
  * Summary
 
 * Design  
@@ -42,10 +51,17 @@
  * Summary
 
 * Evaluation  
+ * Setup
+  * Hardware
  * Parameter Selection  
+  * Control Variables
+  * Independent Variables
+  * Dependent Variables
+ * Results
+  * Visual Results
+  * Runtime Results
+  * Memory Usage Results
  * What have we learnt from the data  
- * Runtimes
- * Memory Usage
  * Summary
 
 * Conclusion  
