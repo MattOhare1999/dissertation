@@ -54,7 +54,7 @@ def get_variance():
 
 
 def load_app_usage(apps, size):
-    return load_file(f'app_usage/top{apps}_app_usage{size}.csv', np.int16)
+    return load_file(f'app_usage/top_{apps}_apps/top{apps}_app_usage{size}.csv', np.int16)
 
 
 def grouped(iterable, n):
