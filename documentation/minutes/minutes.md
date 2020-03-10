@@ -177,6 +177,11 @@ Meeting was pushed back a day due to something coming up. Another quick meeting 
 Another short meeting since the main work done this week was the writing of the dissertation. Main points to take from the meeting were: Matthew stated that pictures are slaves to the text and made the point to make sure that I explain my pictures. Also Matthew mentioned about sending him drafts of sections once they were complete. He said I can send them either as a Google Docs that he can access or a link to the overleaf project. Since the last few meetings have been short, it was suggested that maybe next week's meeting would be asnychronous where we can leave comments on the Google Docs and communicate through that, instead of a face to face meeting or Skype call. It was agreed that this would be more beneficial.
 
 
+## Meeting 21 - 05th February 2020, No meeting this week
+
+Instead an asnychronous meeting was carried out on Google Docs, to get feedback on the first draft of my evaluation section.
+
+
 
 
 

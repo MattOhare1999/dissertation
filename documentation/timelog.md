@@ -432,4 +432,22 @@
 
 *1 hour* - Wrote up meeting minutes and updated timelog
 
+## 06 Mar 2020
+
+*5 hours* - Started write up of evaluation
+
+## 07 Mar 2020
+
+*4 hours* - Carried out part of evaluation
+
+## 09 Mar 2020
+
+*1 hour* - Created new dataset samples and altered file structure
+*5 hours* - Started write up of desgin section
+
+## 10 Mar 2020
+
+*0.5 hour* - Committed new files and updated .gitignore
+*0.5 hour* - Wrote up week 20 status report, updated meeting minutes and timelog
+
 
