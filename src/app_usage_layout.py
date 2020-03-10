@@ -53,8 +53,6 @@ if len(sys.argv) > 7 and sys.argv[7].lower() not in options:
     print('\tAvailable options for intermediate steps: true, false')
     exit(1)
 
-start = time.time()
-
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
 algorithm_text = sys.argv[3].lower() if len(sys.argv) > 3 else 'pivot'
@@ -69,6 +67,7 @@ app_usage = load_app_usage(top_apps, data_set_size)
 print(
     f"Creating layout of {len(app_usage)} app usage entries using {algorithm_text} algorithm with {iterations} iterations and {clusters} clusters. High dimensional clusters - {high_dimensional}, Intermediate Steps - {intermediate_steps}")
 
+start = time.time()
 spring_layout = fl.draw_spring_layout(dataset=app_usage,
                                       distance=app_usage_distance,
                                       iterations=iterations,

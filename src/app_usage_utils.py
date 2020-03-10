@@ -46,7 +46,7 @@ def get_user_ids(data_file):
 
 
 def load_id(apps, size):
-    return load_ids(f'app_usage/top{apps}_app_usage{size}.csv', np.int16)
+    return load_ids(f'app_usage/top_{apps}_apps/top{apps}_app_usage{size}.csv', np.int16)
 
 
 def get_variance():

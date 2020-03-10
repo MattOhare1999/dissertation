@@ -10,6 +10,7 @@ from app_usage_utils import annotate_app_usage, load_app_usage
 from forcelayout import DrawLayout
 from forcelayout.algorithms import BaseSpringLayout
 from forcelayout.forcelayout import _create_algorithm
+from forcelayout.utils import get_size
 
 if len(sys.argv) < 3:
     print(f'\nusage: python3 random_projection.py <num apps> <dataset size> <clusters>')
@@ -46,6 +47,8 @@ total = time.time() - start
 
 plt.savefig("../data/outputs/high_dimensional_plots/%dapps_%dentries_%dclusters_%.0fs.jpg" %
             (top_apps, data_set_size, clusters, total))
+
+print("Max Memory: ", get_size(draw_layout))
 
 print(
     f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')
