@@ -13,11 +13,12 @@ from app_usage_utils import (annotate_app_usage, app_usage_distance,
 from forcelayout import DrawLayout
 from forcelayout.algorithms import BaseSpringLayout
 from forcelayout.forcelayout import _create_algorithm
+from forcelayout.utils import get_size
 
 
 def tsne_embedding(app_usage, iterations, metric, i, random_state=None):
     embedding = TSNE(n_iter=int(iterations/i), random_state=random_state, metric=metric,
-                     perplexity=50).fit_transform(app_usage)
+                     perplexity=30).fit_transform(app_usage)
     return embedding
 
 
@@ -56,8 +57,6 @@ if len(sys.argv) > 7 and sys.argv[7].lower() not in options:
     print('\tAvailable options for intermediate steps: true, false')
     exit(1)
 
-start = time.time()
-
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
 metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'euclidean'
@@ -73,6 +72,7 @@ variance = get_variance()
 print(
     f"Creating layout of {len(app_usage)} app usage entries using a metric of {metric} with {iterations} iterations. High dimensional clusters - {high_dimensional}, Intermediate Steps - {intermediate_steps}")
 
+start = time.time()
 plt.figure(figsize=(16.0, 16.0))
 if intermediate_steps == True:
     random_state = np.random.randint(0, 100)
@@ -123,6 +123,8 @@ if intermediate_steps == True:
 else:
     plt.savefig("../data/outputs/tsne_plots/%dapps_%dentries_%s_%diterations_%r%dclusters_%dperplexity_%.0fs.jpg" %
                 (top_apps, data_set_size, metric, iterations, high_dimensional, clusters, 50, total))
+
+print("Max Memory: ", get_size(draw_layout))
 
 print(
     f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')

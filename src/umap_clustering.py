@@ -14,6 +14,7 @@ from app_usage_utils import (annotate_app_usage, app_usage_distance,
                              get_variance, load_app_usage, load_id)
 from forcelayout import DrawLayout
 from forcelayout.forcelayout import _create_algorithm
+from forcelayout.utils import get_size
 
 options = {
     'true': True,
@@ -68,8 +69,6 @@ if len(sys.argv) > 6 and (int(sys.argv[6]) > 10 or int(sys.argv[6]) < 1):
     print('\tPlease enter a number of clusters between 1 and 10')
     exit(1)
 
-start = time.time()
-
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
 metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'seuclidean'
@@ -88,6 +87,7 @@ variance_dict['V'] = variance[0]
 print(
     f"Creating {type_visual} layout of {len(app_usage)} app usage entries using a metric of {metric} with {clusters} clusters. High dimensional clusters - {high_dimensional}")
 
+start = time.time()
 if type_visual == '3d':
     fig = plt.figure()
     embedding = umap_embedding(app_usage, metric, 3, variance_dict)
@@ -101,7 +101,6 @@ if type_visual == '3d':
     total = get_time(start)
     save_visualisation(plt, type_visual, top_apps,
                        data_set_size, metric, high_dimensional, clusters, total)
-
 
 else:
     embedding = umap_embedding(app_usage, metric, 2, variance_dict)
@@ -135,7 +134,7 @@ else:
                            data_set_size, metric, high_dimensional, clusters, total)
 
     elif type_visual == "interactive1":
-        plt.figure()
+        plt.figure(figsize=(16.0, 16.0))
         spring_layout = _create_algorithm(
             dataset=app_usage, algorithm=umap, distance=app_usage_distance, metric=metric, metric_kwds=variance_dict)
 
@@ -153,6 +152,8 @@ else:
         total = get_time(start)
         save_visualisation(plt, type_visual, top_apps,
                            data_set_size, metric, high_dimensional, clusters, total)
+        
+        print(get_size(draw_layout))
 
     elif type_visual == "interactive2":
         total = get_time(start)
