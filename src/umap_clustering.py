@@ -34,8 +34,12 @@ def save_visualisation(plt, type_visual, top_apps, data_set_size, metric, high_d
 
 
 def umap_embedding(app_usage, metric, dimensions, variance_dict):
-    embedding = umap.UMAP(metric=metric, min_dist=0.1, n_components=dimensions,
-                          spread=0.75, metric_kwds=variance_dict).fit(app_usage)
+    if metric == "seuclidean":
+        embedding = umap.UMAP(metric=metric, min_dist=0.75, n_components=dimensions,
+                          spread=3, n_neighbors=50, metric_kwds=variance_dict).fit(app_usage)
+    else:
+        embedding = umap.UMAP(metric=metric, min_dist=0.75, n_components=dimensions,
+                          spread=3, n_neighbors=50).fit(app_usage)
     return embedding
 
 
@@ -74,7 +78,7 @@ data_set_size = int(sys.argv[2])
 metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'seuclidean'
 type_visual = sys.argv[4].lower() if len(sys.argv) > 4 else 'default'
 high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'true'
-clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 4
+clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 2
 high_dimensional = options[high_dimensional_text]
 app_usage = load_app_usage(top_apps, data_set_size)
 user_ids = load_id(top_apps, data_set_size)

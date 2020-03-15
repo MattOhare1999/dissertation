@@ -6,6 +6,7 @@ import numpy as np
 import seaborn as sns
 from sklearn.cluster import KMeans
 from sklearn.manifold import TSNE
+from scipy.spatial.distance import pdist, squareform
 
 import forcelayout
 from app_usage_utils import (annotate_app_usage, app_usage_distance,
@@ -17,8 +18,12 @@ from forcelayout.utils import get_size
 
 
 def tsne_embedding(app_usage, iterations, metric, i, random_state=None):
-    embedding = TSNE(n_iter=int(iterations/i), random_state=random_state, metric=metric,
-                     perplexity=30).fit_transform(app_usage)
+    if metric == "seuclidean":
+        embedding = TSNE(n_iter=int(iterations/i), random_state=random_state, metric="precomputed",
+                     perplexity=50).fit_transform(app_usage)
+    else:
+        embedding = TSNE(n_iter=int(iterations/i), random_state=random_state, metric=metric,
+                     perplexity=50, early_exaggeration=1).fit_transform(app_usage)
     return embedding
 
 
@@ -27,7 +32,7 @@ options = {
     'false': False,
 }
 
-metrics = ["euclidean", "hamming"]
+metrics = ['euclidean', 'seuclidean', 'hamming']
 
 if len(sys.argv) < 3:
     print(f'\nusage: python3 umap_clustering.py *REQUIRED* <num apps> <dataset size> *OPTIONAL* <metric> <iterations> <high dimensional> <clusters> <intermediate_steps>')
@@ -44,7 +49,7 @@ if len(sys.argv) > 3 and sys.argv[3].lower() not in metrics:
     print('\tAvailable metrics: euclidean, hamming')
 
 if len(sys.argv) > 4 and (int(sys.argv[4]) < 100 or int(sys.argv[4]) > 5000 or int(sys.argv[4]) % 5 != 0):
-    print('\tIterations must be of a multiple of 5 and between 250 and 5000. 1250 if next arguement is true')
+    print('\tIterations must be of a multiple of 5 and between 250 and 5000. 1250 if intermediate_steps is true')
 
 if len(sys.argv) > 5 and sys.argv[5].lower() not in options:
     print('\tAvailable options for high dimensional clusters: true, false')
@@ -59,15 +64,19 @@ if len(sys.argv) > 7 and sys.argv[7].lower() not in options:
 
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
-metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'euclidean'
+metric = sys.argv[3].lower() if len(sys.argv) > 3 else 'seuclidean'
 iterations = int(sys.argv[4]) if len(sys.argv) > 4 else 1000
 high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'true'
-clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 4
+clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 3
 intermediate_steps_text = sys.argv[7].lower() if len(sys.argv) > 7 else 'false'
 high_dimensional = options[high_dimensional_text]
 intermediate_steps = options[intermediate_steps_text]
 app_usage = load_app_usage(top_apps, data_set_size)
-variance = get_variance()
+
+# this has to be done as currently there is no ability to pass in metric parameters for t_sne
+distance = pdist(app_usage, metric, V=None)
+dist_matrix = squareform(distance)
+data = dist_matrix if metric == 'seuclidean' else app_usage 
 
 print(
     f"Creating layout of {len(app_usage)} app usage entries using a metric of {metric} with {iterations} iterations. High dimensional clusters - {high_dimensional}, Intermediate Steps - {intermediate_steps}")
@@ -79,12 +88,12 @@ if intermediate_steps == True:
     step = iterations/5
     for i in range(1, 6):
         embedding = tsne_embedding(
-            app_usage, int(step*i), metric, i, random_state)
+            data, int(step*i), metric, i, random_state)
         if high_dimensional:
             k = KMeans(n_clusters=clusters).fit_predict(app_usage)
         else:
             k = KMeans(n_clusters=clusters).fit_predict(embedding)
-        spring_layout = _create_algorithm(dataset=app_usage,
+        spring_layout = _create_algorithm(dataset=data,
                                           algorithm=TSNE,
                                           distance=app_usage_distance, metric=metric)
         draw_layout = DrawLayout(
@@ -98,12 +107,12 @@ if intermediate_steps == True:
             annotate=annotate_app_usage,
             algorithm_highlights=True)
 else:
-    embedding = tsne_embedding(app_usage, iterations, metric, 1)
+    embedding = tsne_embedding(data, iterations, metric, 1)
     if high_dimensional:
         k = KMeans(n_clusters=clusters).fit_predict(app_usage)
     else:
         k = KMeans(n_clusters=clusters).fit_predict(embedding)
-    spring_layout = _create_algorithm(dataset=app_usage,
+    spring_layout = _create_algorithm(dataset=data,
                                       algorithm=TSNE,
                                       distance=app_usage_distance, metric=metric)
     draw_layout = DrawLayout(
@@ -118,11 +127,11 @@ else:
 total = time.time() - start
 
 if intermediate_steps == True:
-    plt.savefig("../data/outputs/tsne_plots/IntermediateSteps_%dapps_%dentries_%s_%diterations_%r%dclusters_%dperplexity_%.0fs.jpg" %
-                (top_apps, data_set_size, metric, iterations, high_dimensional, clusters, 50, total))
+    plt.savefig("../data/outputs/tsne_plots/IntermediateSteps_%dapps_%dentries_%s_%diterations_%r%dclusters_%.0fs.jpg" %
+                (top_apps, data_set_size, metric, iterations, high_dimensional, clusters, total))
 else:
-    plt.savefig("../data/outputs/tsne_plots/%dapps_%dentries_%s_%diterations_%r%dclusters_%dperplexity_%.0fs.jpg" %
-                (top_apps, data_set_size, metric, iterations, high_dimensional, clusters, 50, total))
+    plt.savefig("../data/outputs/tsne_plots/%dapps_%dentries_%s_%diterations_%r%dclusters_%.0fs.jpg" %
+                (top_apps, data_set_size, metric, iterations, high_dimensional, clusters, total))
 
 print("Max Memory: ", get_size(draw_layout))
 

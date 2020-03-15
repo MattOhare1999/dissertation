@@ -58,7 +58,7 @@ data_set_size = int(sys.argv[2])
 algorithm_text = sys.argv[3].lower() if len(sys.argv) > 3 else 'pivot'
 iterations = int(sys.argv[4]) if len(sys.argv) > 4 else 50
 high_dimensional_text = sys.argv[5].lower() if len(sys.argv) > 5 else 'true'
-clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 4
+clusters = int(sys.argv[6]) if len(sys.argv) > 6 else 3
 intermediate_steps_text = sys.argv[7].lower() if len(sys.argv) > 7 else 'false'
 algorithm = algorithms[algorithm_text]
 high_dimensional = options[high_dimensional_text]
@@ -82,11 +82,11 @@ spring_layout = fl.draw_spring_layout(dataset=app_usage,
 total = time.time() - start
 
 if intermediate_steps == True:
-    plt.savefig("../data/outputs/spring_models_plots/IntermediateSteps_%s_%dapps_%dentries_%r%dclusters_%diterations_%.0fs.jpg" %
-                (algorithm_text, top_apps, data_set_size, high_dimensional, clusters, 50, total))
+    plt.savefig("../data/outputs/spring_models_plots/IntermediateSteps_%s_%dapps_%dentries_%diterations_%r%dclusters_%.0fs.jpg" %
+                (algorithm_text, top_apps, data_set_size, high_dimensional, 50, clusters, total))
 else:
-    plt.savefig("../data/outputs/spring_models_plots/%s_%dapps_%dentries_%r%dclusters_%diterations_%.0fs.jpg" %
-                (algorithm_text, top_apps, data_set_size, high_dimensional, clusters, 50, total))
+    plt.savefig("../data/outputs/spring_models_plots/%s_%dapps_%dentries_%diterations_%r%dclusters_%.0fs.jpg" %
+                (algorithm_text, top_apps, data_set_size, high_dimensional, 50, clusters, total))
 
 print(
     f'\nLayout time: {"%.2f" % total}s ({"%.1f" % (total / 60)} mins)')

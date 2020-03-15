@@ -25,7 +25,7 @@ if len(sys.argv) > 3 and (int(sys.argv[3]) > 10 or int(sys.argv[3]) < 1):
 
 top_apps = int(sys.argv[1])
 data_set_size = int(sys.argv[2])
-clusters = int(sys.argv[3]) if len(sys.argv) > 3 else 2
+clusters = int(sys.argv[3]) if len(sys.argv) > 3 else 4
 app_usage = load_app_usage(top_apps, data_set_size)
 print(
     f"Creating a low dimensional random projection layout of high dimensional {len(app_usage)} app usage entries with {clusters} clusters")

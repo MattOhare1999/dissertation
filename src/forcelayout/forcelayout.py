@@ -274,11 +274,19 @@ def _create_algorithm(
                                 target_node_speed=target_node_speed)
         spring_layout = NeighbourSampling(dataset=dataset, **params)
     elif algorithm is TSNE:
-        spring_layout = TSNE(
-            n_components=2, metric=metric).fit_transform(dataset)
+        if metric == "seuclidean":
+            spring_layout = TSNE(
+                n_components=2, metric="precomputed", perplexity=50).fit_transform(dataset)
+        else:
+            spring_layout = TSNE(
+                n_components=2, metric=metric, perplexity=50).fit_transform(dataset)
     elif algorithm is umap:
-        spring_layout = umap.UMAP(
-            metric=metric, min_dist=0.1, spread=0.75, metric_kwds=metric_kwds).fit_transform(dataset)
+        if metric == "seuclidean":
+            spring_layout = umap.UMAP(
+                metric=metric, min_dist=0.75, spread=3, n_neighbors=50, metric_kwds=metric_kwds).fit_transform(dataset)
+        else:
+            spring_layout = umap.UMAP(
+                metric=metric, min_dist=0.75, spread=3, n_neighbors=50).fit_transform(dataset)
     elif algorithm is GaussianRandomProjection:
         spring_layout = GaussianRandomProjection(
             n_components=2).fit_transform(dataset)
