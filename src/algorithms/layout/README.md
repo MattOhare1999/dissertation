@@ -9,7 +9,7 @@ This package provides 3 force-directed layout algorithms implemented in Python a
 ## Structure
 
 ```
-forcelayout
+layout
 ├── algorithms
 │   ├── base_spring_layout.py
 │   ├── hybrid.py
@@ -20,7 +20,7 @@ forcelayout
 │   └── __init__.py
 ├── distance.py
 ├── draw.py
-├── forcelayout.py
+├── layout.py
 ├── metrics.py
 ├── utils.py
 └── __init__.py
@@ -37,7 +37,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # import the package
-import forcelayout as fl
+import layout as fl
 
 # Need a dataset to visualise
 dataset = np.array([[1, 1],
@@ -62,7 +62,7 @@ Throughout this documentation these notations are used:
 Also it is assumed that the package is import by:
 
 ```
-import forcelayout as fl
+import layout as fl
 ```
 
 ## Functions
@@ -104,7 +104,7 @@ Create an instance of a spring layout algorithm without running it. Uses the sam
 ## Algorithm Interface
 
 ```
-from forcelayout.algorithms import (BaseSpringLayout,
+from layout.algorithms import (BaseSpringLayout,
                                     SpringForce,
                                     NeighbourSampling,
                                     Hybrid,
@@ -150,7 +150,7 @@ Returns the current iteration number of the algorithm.
 ## Drawing interface
 
 ```
-from forcelayout.draw import DrawLayout
+from layout.draw import DrawLayout
 ```
 
 ### `DrawLayout`:
@@ -192,7 +192,7 @@ Save the current layout. Wraps `matplotlib.pyplot.savefig()` and all `*args` and
 ## Metrics Interface
 
 ```
-from forcelayout.metrics import LayoutMetrics
+from layout.metrics import LayoutMetrics
 ```
 
 ### `LayoutMetrics`:

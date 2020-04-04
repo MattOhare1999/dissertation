@@ -13,18 +13,26 @@ class NeighbourSampling(BaseSpringLayout):
     An implementation of Chalmers' 1996 Neighbour and Sampling algorithm.
     Using random sampling to find the closest neighbours from the data set.
     """
-
-    def __init__(self, dataset: np.ndarray = None, nodes: List[Node] = None,
-                 distance_fn: Callable[[np.ndarray, np.ndarray], float] = euclidean,
-                 iterations: int = 50, neighbour_set_size: int = 5, sample_set_size: int = 10,
-                 target_node_speed: float = 0.0, enable_cache: bool = True):
-        super().__init__(dataset=dataset, nodes=nodes, distance_fn=distance_fn,
-                         iterations=iterations, target_node_speed=target_node_speed,
+    def __init__(self,
+                 dataset: np.ndarray = None,
+                 nodes: List[Node] = None,
+                 distance_fn: Callable[[np.ndarray, np.ndarray],
+                                       float] = euclidean,
+                 iterations: int = 50,
+                 neighbour_set_size: int = 5,
+                 sample_set_size: int = 10,
+                 target_node_speed: float = 0.0,
+                 enable_cache: bool = True):
+        super().__init__(dataset=dataset,
+                         nodes=nodes,
+                         distance_fn=distance_fn,
+                         iterations=iterations,
+                         target_node_speed=target_node_speed,
                          enable_cache=enable_cache)
         assert neighbour_set_size > 0, "neighbour_set_size must be > 0"
         assert sample_set_size > 0, "sample_set_size must be > 0"
         self.neighbour_set_size: int = neighbour_set_size
-        self.sample_set_size:    int = sample_set_size
+        self.sample_set_size: int = sample_set_size
         self.neighbours: Dict[int, List[int]] = dict()
         self.data_size_factor: float = 0.5 / \
             (neighbour_set_size + sample_set_size)
@@ -40,8 +48,10 @@ class NeighbourSampling(BaseSpringLayout):
             for j in sample_set:
                 self._set_velocity(self.nodes[i], self.nodes[j], alpha)
             for j in neighbour_set:
-                self._set_velocity(
-                    self.nodes[i], self.nodes[j], alpha, cache_distance=True)
+                self._set_velocity(self.nodes[i],
+                                   self.nodes[j],
+                                   alpha,
+                                   cache_distance=True)
             self._update_neighbours(i, samples=sample_set)
         self._apply_velocities()
         show_progress(self._i, self.iterations)
@@ -52,11 +62,10 @@ class NeighbourSampling(BaseSpringLayout):
         If no neighbouts exist yet then they are randomly sampled.
         """
         if index not in self.neighbours:
-            random_sample = random_sample_set(
-                self.neighbour_set_size, len(self.nodes), {index})
+            random_sample = random_sample_set(self.neighbour_set_size,
+                                              len(self.nodes), {index})
             random_sample.sort(
-                key=lambda j: self.distance(self.nodes[index], self.nodes[j])
-            )
+                key=lambda j: self.distance(self.nodes[index], self.nodes[j]))
             self.neighbours[index] = random_sample
         return self.neighbours[index]
 
@@ -66,7 +75,8 @@ class NeighbourSampling(BaseSpringLayout):
         current node and neighbours of the node.
         """
         exclude = {i}.union(set(self._get_neighbours(i)))
-        return list(random_sample_set(self.sample_set_size, len(self.nodes), exclude))
+        return list(
+            random_sample_set(self.sample_set_size, len(self.nodes), exclude))
 
     def _update_neighbours(self, i: int, samples: List[int]) -> None:
         """
@@ -81,8 +91,8 @@ class NeighbourSampling(BaseSpringLayout):
             sample_distance = self.distance(source, self.nodes[s])
             if sample_distance < furthest_neighbour:
                 n = self.neighbour_set_size - 2
-                neighbour_distance = self.distance(
-                    source, self.nodes[neighbours[n]])
+                neighbour_distance = self.distance(source,
+                                                   self.nodes[neighbours[n]])
                 while sample_distance < neighbour_distance:
                     n -= 1
                     if n < 0:

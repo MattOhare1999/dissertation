@@ -58,7 +58,12 @@ There were a few more anomolies:
   * User 1617  
   * User 6308  
   * User 6384  
-  * user 10621  
+  * User 10621  
+
+  * User 1171  
+  * User 7466
+  * User 5379
+These are outliers on t-SNE when the number of apps is increased
 
 While using spring models, I found some of the best parameters to be:  
 * Number of iterations - best seems to be 50 and 400 depending on size of dataset  
@@ -66,5 +71,8 @@ While using spring models, I found some of the best parameters to be:
 * t-SNE perplexity - optimal seems to be 50 for large datasets and 30 for anything smaller  
 * UMAP min_dist - 0.1, combined with spread, this gave the best visual  
 * UMAP spread - 0.75, combined with min_dist this gave the best visual  
+
+t-SNE - 30 perplexity, euclidean (best however 50 is also good), 30 perplexity, seuclidean (other option, its alright)
+UMAP - 50 neighbors, seuclidean (best) 50 neighbors , euclidean (other option but still not the best)
 
 

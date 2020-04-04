@@ -14,21 +14,24 @@ class BaseSpringLayout(ABC):
     """
     Base class for a spring layout algorithm
     """
-
-    def __init__(self, dataset: np.ndarray = None, nodes: List[Node] = None,
-                 distance_fn: Callable[[np.ndarray, np.ndarray], float] = euclidean,
-                 iterations: int = 50, target_node_speed: float = 0.0,
+    def __init__(self,
+                 dataset: np.ndarray = None,
+                 nodes: List[Node] = None,
+                 distance_fn: Callable[[np.ndarray, np.ndarray],
+                                       float] = euclidean,
+                 iterations: int = 50,
+                 target_node_speed: float = 0.0,
                  enable_cache: bool = True) -> None:
         assert iterations >= 0, "iterations must be non-negative"
         assert dataset is not None or nodes is not None, "must provide either dataset or nodes"
 
-        self.nodes: List[Node] = nodes if nodes is not None else self._build_nodes(
-            dataset)
+        self.nodes: List[
+            Node] = nodes if nodes is not None else self._build_nodes(dataset)
         self.iterations: int = iterations
         self.data_size_factor: float = 1
         self._i: int = 0  # current iteration
-        self.distance_fn: Callable[[
-            np.ndarray, np.ndarray], float] = distance_fn
+        self.distance_fn: Callable[[np.ndarray, np.ndarray],
+                                   float] = distance_fn
         self._average_speeds: List[float] = list()
         self.target_node_speed: float = target_node_speed
         self.enable_cache: bool = enable_cache
@@ -53,8 +56,8 @@ class BaseSpringLayout(ABC):
         actual_distance: float = 0.0
         for source, target in combinations(self.nodes, 2):
             high_d_distance = self.distance(source, target, cache=False)
-            low_d_distance = math.sqrt(
-                (target.x - source.x)**2 + (target.y - source.y)**2)
+            low_d_distance = math.sqrt((target.x - source.x)**2 +
+                                       (target.y - source.y)**2)
             distance_diff += (high_d_distance - low_d_distance)**2
             actual_distance += low_d_distance**2
         if actual_distance == 0:
@@ -66,9 +69,12 @@ class BaseSpringLayout(ABC):
 
     def average_speed(self) -> float:
         """ Return the 5-running mean of the average node speeds """
-        return mean(self._average_speeds[-5:]) if len(self._average_speeds) > 0 else np.inf
+        return mean(self._average_speeds[-5:]) if len(
+            self._average_speeds) > 0 else np.inf
 
-    def spring_layout(self, alpha: float = 1, return_after: int = None) -> np.ndarray:
+    def spring_layout(self,
+                      alpha: float = 1,
+                      return_after: int = None) -> np.ndarray:
         """
         Method to perform the main spring layout calculation, move the nodes self.iterations
         number of times unless return_after is given.
@@ -76,22 +82,30 @@ class BaseSpringLayout(ABC):
         times. Subsequent calls to spring_layout will continue from the previous number of
         iterations.
         """
-        if return_after is not None and self.average_speed() > self.target_node_speed:
+        if return_after is not None and self.average_speed(
+        ) > self.target_node_speed:
             for i in range(return_after):
                 self._spring_layout(alpha=alpha)
                 self._i += 1
         else:
-            while self.average_speed() > self.target_node_speed and self._i < self.iterations:
+            while self.average_speed(
+            ) > self.target_node_speed and self._i < self.iterations:
                 self._spring_layout(alpha=alpha)
                 self._i += 1
         # Return calculated positions for datapoints
         return self.get_positions()
 
-    def distance_no_cache(self, source: Node, target: Node, cache: bool = False) -> float:
+    def distance_no_cache(self,
+                          source: Node,
+                          target: Node,
+                          cache: bool = False) -> float:
         """ Distance function to use when self.disable_cache = True """
         return self.distance_fn(source.datapoint, target.datapoint)
 
-    def distance(self, source: Node, target: Node, cache: bool = False) -> float:
+    def distance(self,
+                 source: Node,
+                 target: Node,
+                 cache: bool = False) -> float:
         """
         Returns the high dimensional distance between two nodes at source and target
         index using self.distance_fn
@@ -111,11 +125,19 @@ class BaseSpringLayout(ABC):
         """
         pass
 
-    def _force(self, current_distance, real_distance, alpha: float = 1) -> float:
-        return (current_distance - real_distance) * alpha * self.data_size_factor / current_distance
+    def _force(self,
+               current_distance,
+               real_distance,
+               alpha: float = 1) -> float:
+        return (current_distance - real_distance
+                ) * alpha * self.data_size_factor / current_distance
 
-    def _calculate_velocity(self, source: Node, target: Node, alpha: float = 1,
-                            cache_distance: bool = False) -> Tuple[float, float]:
+    def _calculate_velocity(
+            self,
+            source: Node,
+            target: Node,
+            alpha: float = 1,
+            cache_distance: bool = False) -> Tuple[float, float]:
         """
         Calculate the spring force to apply between two nodes i and j
         """
@@ -125,7 +147,8 @@ class BaseSpringLayout(ABC):
         force = self._force(dist, real_dist, alpha)
         return (x * force, y * force)
 
-    def _current_distance(self, source: Node, target: Node) -> Tuple[float, float]:
+    def _current_distance(self, source: Node,
+                          target: Node) -> Tuple[float, float]:
         """
         Calculate the current 2d layout distance between two nodes.
         Apply a small non zero random value to remove values of zero
@@ -137,13 +160,18 @@ class BaseSpringLayout(ABC):
         y = y if y else jiggle()
         return x, y
 
-    def _set_velocity(self, source: Node, target: Node, alpha: float,
+    def _set_velocity(self,
+                      source: Node,
+                      target: Node,
+                      alpha: float,
                       cache_distance: bool = False) -> None:
         """
         Calculate the force between two nodes and update the
         velocity of both nodes
         """
-        vx, vy = self._calculate_velocity(source, target, alpha=alpha,
+        vx, vy = self._calculate_velocity(source,
+                                          target,
+                                          alpha=alpha,
                                           cache_distance=cache_distance)
         source.add_velocity(vx, vy)
         target.add_velocity(-vx, -vy)

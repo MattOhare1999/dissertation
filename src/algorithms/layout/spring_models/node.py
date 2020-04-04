@@ -4,8 +4,12 @@ import numpy as np
 class Node:
     __slots__ = ['datapoint', 'x', 'y', 'vx', 'vy']
 
-    def __init__(self, datapoint: np.ndarray, x: float = 0.0, y: float = 0.0,
-                 vx: float = 0.0, vy: float = 0.0) -> None:
+    def __init__(self,
+                 datapoint: np.ndarray,
+                 x: float = 0.0,
+                 y: float = 0.0,
+                 vx: float = 0.0,
+                 vy: float = 0.0) -> None:
         self.datapoint = datapoint
         self.x = x
         self.y = y

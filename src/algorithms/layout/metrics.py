@@ -3,7 +3,7 @@ from typing import Dict, List
 
 import numpy as np
 
-from .algorithms import BaseSpringLayout, Hybrid
+from .spring_models import BaseSpringLayout, Hybrid
 
 
 class LayoutMetrics:
@@ -13,8 +13,8 @@ class LayoutMetrics:
         self.n: int = len(self.spring_layout.nodes)
         self.iter_times: List[float] = []
         self.avg_node_speed: List[float] = []
-        self.use_checkpoints: bool = issubclass(
-            type(self.spring_layout), Hybrid)
+        self.use_checkpoints: bool = issubclass(type(self.spring_layout),
+                                                Hybrid)
         if self.use_checkpoints:
             self.checkpoints: List[np.ndarray] = []
             self.stage_times: List[List[float]] = [[], [], []]
@@ -29,8 +29,8 @@ class LayoutMetrics:
             self.get_memory(i)
             self.get_avg_speed(i)
             if self.use_checkpoints:
-                self.stage_times[self.spring_layout.stage.value].append(
-                    end - start)
+                self.stage_times[self.spring_layout.stage.value].append(end -
+                                                                        start)
                 if self.spring_layout._completed_stage():
                     self.checkpoints.append(self.spring_layout.get_positions())
 
@@ -67,8 +67,9 @@ class LayoutMetrics:
             max(self.memory.values()),
         ]
         if self.use_checkpoints:
-            results += [sum(stage_iter_items)
-                        for stage_iter_items in self.stage_times]
+            results += [
+                sum(stage_iter_items) for stage_iter_items in self.stage_times
+            ]
         return results
 
     def to_csv(self) -> str:

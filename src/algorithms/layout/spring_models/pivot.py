@@ -18,34 +18,46 @@ class Pivot(Hybrid):
     into buckets. Other data points are then interpolated into the model by querying the pivot
     buckets. Finally, '96 neighbour sampling is performed to clean up the layout.
     """
-
-    def __init__(self, dataset: np.ndarray = None, nodes: List[Node] = None,
-                 distance_fn: Callable[[np.ndarray, np.ndarray], float] = euclidean,
-                 sample_layout_iterations: int = 75, remainder_layout_iterations: int = 5,
-                 refine_layout_iterations: int = 5, random_sample_size: int = 15,
-                 preset_sample: List[int] = None, pivot_set_size: int = 10,
-                 target_node_speed: float = 0.0, enable_cache: bool = True) -> None:
-        super().__init__(dataset=dataset, nodes=nodes, distance_fn=distance_fn,
-                         sample_layout_iterations=sample_layout_iterations,
-                         remainder_layout_iterations=remainder_layout_iterations,
-                         refine_layout_iterations=refine_layout_iterations,
-                         random_sample_size=random_sample_size,
-                         preset_sample=preset_sample,
-                         target_node_speed=target_node_speed,
-                         enable_cache=enable_cache)
+    def __init__(self,
+                 dataset: np.ndarray = None,
+                 nodes: List[Node] = None,
+                 distance_fn: Callable[[np.ndarray, np.ndarray],
+                                       float] = euclidean,
+                 sample_layout_iterations: int = 75,
+                 remainder_layout_iterations: int = 5,
+                 refine_layout_iterations: int = 5,
+                 random_sample_size: int = 15,
+                 preset_sample: List[int] = None,
+                 pivot_set_size: int = 10,
+                 target_node_speed: float = 0.0,
+                 enable_cache: bool = True) -> None:
+        super().__init__(
+            dataset=dataset,
+            nodes=nodes,
+            distance_fn=distance_fn,
+            sample_layout_iterations=sample_layout_iterations,
+            remainder_layout_iterations=remainder_layout_iterations,
+            refine_layout_iterations=refine_layout_iterations,
+            random_sample_size=random_sample_size,
+            preset_sample=preset_sample,
+            target_node_speed=target_node_speed,
+            enable_cache=enable_cache)
         self.pivot_set_size: int = min(self.sample_set_size, pivot_set_size)
         self.pivot_indexes: List[int] = random_sample_set(
             self.pivot_set_size, self.sample_set_size)
         self.pivots: List[Node] = [self.sample[i] for i in self.pivot_indexes]
         target_num_buckets: int = round(math.sqrt(self.sample_set_size))
-        self.bucket_size: int = math.ceil(
-            self.sample_set_size / target_num_buckets)
-        self.num_buckets: int = math.ceil(
-            self.sample_set_size / self.bucket_size)
+        self.bucket_size: int = math.ceil(self.sample_set_size /
+                                          target_num_buckets)
+        self.num_buckets: int = math.ceil(self.sample_set_size /
+                                          self.bucket_size)
         self.bucket_distances: Dict[Node, List[float]] = {
-            p: [] for p in self.pivots}
+            p: []
+            for p in self.pivots
+        }
         self.pivot_buckets: Dict[Node, List[Set[Node]]] = {
-            p: [set() for i in range(self.num_buckets)] for p in self.pivots
+            p: [set() for i in range(self.num_buckets)]
+            for p in self.pivots
         }
 
     def _remainder_layout_stage(self, alpha: float) -> None:
@@ -89,18 +101,18 @@ class Pivot(Hybrid):
         source = self.nodes[index]
         parent = self._find_parent(source)
         radius = self.distance(source, parent)
-        distance_sum = sum([self.distance(source, pivot)
-                            for pivot in self.pivots])
+        distance_sum = sum(
+            [self.distance(source, pivot) for pivot in self.pivots])
 
-        sample_distances_error = self._create_error_fn(
-            parent, radius, distance_sum)
+        sample_distances_error = self._create_error_fn(parent, radius,
+                                                       distance_sum)
 
         lower_angle, upper_angle = self._find_circle_quadrant(
             sample_distances_error)
-        best_angle = self._binary_search_angle(
-            lower_angle, upper_angle, sample_distances_error)
-        source.x, source.y = point_on_circle(
-            parent.x, parent.y, best_angle, radius)
+        best_angle = self._binary_search_angle(lower_angle, upper_angle,
+                                               sample_distances_error)
+        source.x, source.y = point_on_circle(parent.x, parent.y, best_angle,
+                                             radius)
         self._force_layout_child(index, alpha)
 
     def _create_error_fn(self, parent: Node, radius: float,
@@ -110,7 +122,6 @@ class Pivot(Hybrid):
         error in distances at an angle on the parent circle
         at the calculated radius
         """
-
         def sample_distances_error(angle: int):
             point = point_on_circle(parent.x, parent.y, angle, radius)
             return abs(distance_sum - self._pivot_distances_sum(*point))
@@ -128,8 +139,8 @@ class Pivot(Hybrid):
             best_fit_buckets.append(self.pivot_buckets[pivot][bucket_index])
 
         common = flexible_intersection(*best_fit_buckets)
-        parent = min(common, key=lambda p: self.distance(
-            source, p, cache=True))
+        parent = min(common,
+                     key=lambda p: self.distance(source, p, cache=True))
         return parent
 
     def _find_bucket(self, pivot: Node, distance: float) -> int:
@@ -145,13 +156,14 @@ class Pivot(Hybrid):
         """
         source = self.nodes[index]
         for i in range(self.remainder_layout_iterations):
-            sample_set = random_sample_set(
-                self.random_sample_size, self.sample_set_size, {index})
+            sample_set = random_sample_set(self.random_sample_size,
+                                           self.sample_set_size, {index})
             for j in sample_set:
                 target = self.sample[j]
                 x, y = self._current_distance(source, target)
-                force = self._force(math.hypot(x, y), self.distance(
-                    source, self.sample[j]), alpha)
+                force = self._force(math.hypot(x, y),
+                                    self.distance(source, self.sample[j]),
+                                    alpha)
                 source.add_velocity(x * force, y * force)
             source.apply_velocity()
 
@@ -159,4 +171,5 @@ class Pivot(Hybrid):
         """
         Sum the total distance from all sample nodes to a point (x, y)
         """
-        return sum([math.hypot(target.x - x, target.y - y) for target in self.pivots])
+        return sum(
+            [math.hypot(target.x - x, target.y - y) for target in self.pivots])

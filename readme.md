@@ -1,27 +1,19 @@
-# Guidance
-This is a suggested template for a project. You can modify it as you please, but
-but remember to keep:
+# Level 4 Individual Project - Matthew James O'Hare
+## Visualisation of Mobile App Usage
 
-* a timelog, updated regularly in the `timelog.md` format;
-* all source under version control;
-* data well organised and with appropriate ethical approval (for human subject data);
+This is the project repository for my individual dissertation project undertaken during my 4th year at the University of Glasgow. This project was supervised by Professor Matthew Chalmers.
 
-Here's an overview of the structure as it stands:
+The aim of this project was to visualise mobile app usage in an informative and meaningful way, in doing so six Dimensionality Reduction algorithms were implemeted to compare and evaluate visualisations. The source code for this project including documentation and requirements can be found in `src`
 
-* `timelog.md` The time log for your project.
-* `plan.md` A skeleton week-by-week plan for the project. 
-* `data/` data you acquire during the project
-* `src/` source code for your project
-* `status_report/` the status report submitted in December
-* `meetings/` Records of the meetings you have during the project.
-* `dissertation/` source and for your project dissertation
-* `presentation/` your presentation
+The structure of the project is as follows:
 
-* Make sure you add a `.gitignore` or similar for your VCS for the tools you are using!
-* Add any appropriate continuous integration (e.g. Travis CI) in this directory.
+* `timelog.md` Cointains the time log of the project.
+* `plan.md` Contains a skeleton week-by-week plan of the project. 
+* `data/` Contains the notebook used for data evaluation.
+* `src/` Contains source code of the project.
+* `documentation` Contains all meeting minutes, notes and status reports.
+* `dissertation/` Contains all source materials for project dissertation.
+* `presentation/` Contains project presentation.
+* `.gitignore` Current .gitignore files.
 
-* Remove this `readme.md` file from any repository and replace it with something more appropriate!
 
-## Important
-* It should be easy to rebuild and run your project and your dissertation
-        * Include clear instructions in the relevant directories to make this possible

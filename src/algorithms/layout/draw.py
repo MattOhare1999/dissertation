@@ -6,8 +6,8 @@ import numpy as np
 import seaborn as sns
 from matplotlib.animation import FuncAnimation as Animation
 
-from .algorithms import (BaseSpringLayout, Hybrid, NeighbourSampling, Node,
-                         Pivot)
+from .spring_models import (BaseSpringLayout, Hybrid, NeighbourSampling, Node,
+                            Pivot)
 
 ColorMap = plt.cm
 notSpring: bool = None
@@ -21,7 +21,7 @@ class DrawLayout:
     def draw(self,
              alpha: float = None,
              color_by: Callable[[np.ndarray], float] = None,
-             color_map: str = 'Set1',
+             color_map: str = 'jet',
              point_colors=None,
              annotate: Callable[[Node, int], str] = None,
              size: float = 40,
@@ -34,7 +34,7 @@ class DrawLayout:
                    using color_by
         """
 
-        # Get positions of nodes
+        # get positions of nodes
         pos: np.ndarray = self.spring_layout.get_positions()
         x = pos[:, 0]
         y = pos[:, 1]
@@ -42,8 +42,13 @@ class DrawLayout:
         global notSpring
         notSpring = False
 
-        sc = plt.scatter(x, y, s=size, alpha=alpha,
-                         c=point_colors, cmap=color_map)
+        # draw plot
+        sc = plt.scatter(x,
+                         y,
+                         s=size,
+                         alpha=alpha,
+                         c=point_colors,
+                         cmap=color_map)
         plt.axis("off")
 
         if annotate is not None:
@@ -64,11 +69,15 @@ class DrawLayout:
                     algorithm_highlights: bool = False,
                     current_plot: int = None,
                     current_iters: int = None) -> None:
+        """
+        Draw the spring layout graph in different facets.
+        """
 
-        # this has to be done in current version, new version will apparantly create a new axes automatically
+        # this has to be done in current version of matplotlib, new version will apparantly create a new axes automatically
         # instead of adding them to the same plot
         scatter_pos = [231, 232, 233, 234, 235]
-        # Get positions of nodes
+
+        # get positions of nodes
         pos: np.ndarray = self.spring_layout.get_positions()
         x = pos[:, 0]
         y = pos[:, 1]
@@ -76,12 +85,16 @@ class DrawLayout:
         global notSpring
         notSpring = False
 
-        plt.subplot(scatter_pos[current_plot-1])
-        sc = plt.scatter(x, y, s=size, alpha=alpha,
-                         c=point_colors, cmap=color_map)
+        # draw plot
+        plt.subplot(scatter_pos[current_plot - 1])
+        sc = plt.scatter(x,
+                         y,
+                         s=size,
+                         alpha=alpha,
+                         c=point_colors,
+                         cmap=color_map)
         label = str(current_iters) + " Iterations"
         plt.title(label)
-        # plt.axis("off")
 
         if annotate is not None:
             self._enable_annotation(annotate=annotate,
@@ -100,17 +113,24 @@ class DrawLayout:
                   annotate: Callable[[Node, int], str] = None,
                   size: float = 40,
                   algorithm_highlights: bool = False) -> None:
+        """
+        Draw the t-SNE layout graph.
+        """
 
-        # Get positions of nodes
+        # get positions of nodes
         x = data[:, 0]
         y = data[:, 1]
 
         global notSpring
         notSpring = True
 
-        # Draw plot
-        sc = plt.scatter(x, y, s=size, alpha=alpha,
-                         c=point_colors, cmap=color_map)
+        # draw plot
+        sc = plt.scatter(x,
+                         y,
+                         s=size,
+                         alpha=alpha,
+                         c=point_colors,
+                         cmap=color_map)
         plt.axis('off')
 
         if annotate is not None:
@@ -132,20 +152,29 @@ class DrawLayout:
                          algorithm_highlights: bool = False,
                          current_plot: int = None,
                          current_iters: int = None) -> None:
+        """
+        Draw the t-SNE layout graph in different facets.
+        """
 
-        # this has to be done in current version, new version will apparantly create a new axes automatically
+        # this has to be done in current version of matplotlib, new version will apparantly create a new axes automatically
         # instead of adding them to the same plot
         scatter_pos = [231, 232, 233, 234, 235]
-        # Get positions of nodes
+
+        # get positions of nodes
         x = data[:, 0]
         y = data[:, 1]
 
         global notSpring
         notSpring = True
 
-        plt.subplot(scatter_pos[current_plot-1])
-        sc = plt.scatter(x, y, s=size, alpha=alpha,
-                         c=point_colors, cmap=color_map)
+        # draw plot
+        plt.subplot(scatter_pos[current_plot - 1])
+        sc = plt.scatter(x,
+                         y,
+                         s=size,
+                         alpha=alpha,
+                         c=point_colors,
+                         cmap=color_map)
         label = str(current_iters) + " Iterations"
         plt.title(label)
 
@@ -167,17 +196,24 @@ class DrawLayout:
                   annotate: Callable[[Node, int], str] = None,
                   size: float = 40,
                   algorithm_highlights: bool = False) -> None:
+        """
+        Draw the UMAP layout graph.
+        """
 
-        # Get positions of nodes
+        # get positions of nodes
         x = data.transform(dataset)[:, 0]
         y = data.transform(dataset)[:, 1]
 
         global notSpring
         notSpring = True
 
-        # Draw plot
-        sc = plt.scatter(x, y, s=size, alpha=alpha,
-                         c=point_colors, cmap=color_map)
+        # draw plot
+        sc = plt.scatter(x,
+                         y,
+                         s=size,
+                         alpha=alpha,
+                         c=point_colors,
+                         cmap=color_map)
         plt.axis('off')
 
         if annotate is not None:
@@ -188,6 +224,7 @@ class DrawLayout:
         if algorithm_highlights:
             self._enable_highlights(scatter=sc)
 
+    # not used in current implementation
     def draw_animated(self,
                       alpha: float = None,
                       color_by: Callable[[np.ndarray], float] = None,
