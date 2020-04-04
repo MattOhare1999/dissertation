@@ -9,7 +9,7 @@ The structure of the project is as follows:
 
 * `timelog.md` Cointains the time log of the project.
 * `plan.md` Contains a skeleton week-by-week plan of the project. 
-* `data/` Contains the notebook used for data evaluation as well as layouts created from the algorithms.
+* `data/` Contains the notebook used for data evaluation as well as a selection of layouts created from the algorithms.
 * `src/` Contains source code of the project.
 * `documentation` Contains all meeting minutes, notes and status reports.
 * `dissertation/` Contains all source materials for project dissertation.
