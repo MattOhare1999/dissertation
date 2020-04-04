@@ -442,12 +442,106 @@
 
 ## 09 Mar 2020
 
-*1 hour* - Created new dataset samples and altered file structure
+*1 hour* - Created new dataset samples and altered file structure  
 *5 hours* - Started write up of desgin section
 
 ## 10 Mar 2020
 
-*0.5 hour* - Committed new files and updated .gitignore
+*0.5 hour* - Committed new files and updated .gitignore  
 *0.5 hour* - Wrote up week 20 status report, updated meeting minutes and timelog
 
+## 11 Mar 2020
+
+*6 hours* - Completed design section
+
+## 12 Mar 2020
+
+*7 hours* - Started background section
+
+## 13 Mar 2020
+
+*7 hours* - Continued background section
+
+## 16 Mar 2020
+
+*3 hours* - Finished background section  
+*3 hours* - Started introduction section
+
+## 17 Mar 2020
+
+*7 hours* - Finished introduction section
+
+## 18 Mar 2020
+
+*7 hours* - Used feedback to rewrite implementation section
+
+## 19 Mar 2020
+
+*6 hours* - Finished rewrite of implementation section
+
+## 20 Mar 2020
+
+*4 hours* - Code alterations and bug fixes
+
+## 21 Mar 2020
+
+*3 hours* - Continued with practical evaluation
+
+## 23 Mar 2020
+
+*8 hours* - Completed practical evaluation
+
+## 24 Mar 2020
+
+*7 hours* - Finished write up of evaluation section
+
+## 25 Mar 2020
+
+*5 hours* - Used feedback to make changes to background section
+
+## 26 Mar 2020
+
+*7 hours* - Began transfer of dissertation to overleaf
+
+## 27 Mar 2020
+
+*7 hours* - Continued transfer of dissertation to overleaf adding in all necessary figures and referencing them
+
+## 28 Mar 2020 
+
+*5 hours* - Started bibliography and referencing
+
+## 29 Mar 2020
+
+*1 hour* - Completed bibliography and referencing  
+*4 hours* - Started write up of conclusion
+
+## 30 Mar 2020
+
+*6 hours* - Finished write up of conclusion and related work
+
+## 31 Mar 2020
+
+*5 hours* - Tidied up dissertation to finish draft
+*1 hour* - Started proof read
+
+## 01 Apr 2020
+
+*3 hours* - Continued proof read with some changes
+
+## 02 Apr 2020
+
+*6 hours* - Finished proof read
+
+## 03 Apr 2020
+
+*2 hours* - Minor changes to dissertation  
+*3 hours* - Few code changes/comments added  
+*2 hours* - Started documentation for software and requirements.txt file
+
+## 04 Apr 2020
+
+*4 hours* - Sorted out repo and files, completed all documentation and requirements.txt  
+*1 hour* - Tested deployment through a VM  
+*1 hours* - Started presentation planning
 

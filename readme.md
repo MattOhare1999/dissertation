@@ -3,7 +3,7 @@
 
 This is the project repository for my individual dissertation project undertaken during my 4th year at the University of Glasgow. This project was supervised by Professor Matthew Chalmers.
 
-The aim of this project was to visualise mobile app usage in an informative and meaningful way, in doing so six Dimensionality Reduction algorithms were implemeted to compare and evaluate visualisations. The source code for this project including documentation and requirements can be found in `src`.
+The aim of this project was to visualise mobile app usage in an informative and meaningful way, in doing so six Dimensionality Reduction algorithms were implemeted to compare and evaluate visualisations. The source code for this project including documentation and requirements can be found in `src/`.
 
 The structure of the project is as follows:
 
