@@ -51,9 +51,9 @@ algorithms
 
 To run this software, dependencies must first be installed.
 
-'''bash
+```bash
 python3 -m pip install -r requirements.txt
-'''
+```
 
 This will install all the necessary pre-requisites required to set up this project which include:
 
@@ -69,10 +69,10 @@ See [manual.md](manual.md) for full documentation on how to use this software.
 
 To ensure that all dependences have installed properly and the software is working as it should, run the following command:
 
-'''bash
+```bash
 # python3 umap_layout.py <num apps> <dataset size>
 python3 algorithms/umap_layout 100 1000
-'''
+```
 
 A layout should be produced in ~9s. If successful then everything has installed correctly.
 
