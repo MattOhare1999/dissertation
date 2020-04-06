@@ -8,7 +8,7 @@ This software implements six different dimensionality reduction algorithms in Py
 * [t-SNE](https://scikit-learn.org/stable/modules/generated/sklearn.manifold.TSNE.html#examples-using-sklearn-manifold-tsne)
 * [UMAP](https://umap-learn.readthedocs.io/en/latest/basic_usage.html)
 
-All three Spring Model algorithms were adapted from an implementation created from another project - https://github.com/Iain530/force-directed-layout-algorithms
+All three Spring Model algorithms were adapted from an implementation created from another project - https://github.com/Iain530/force-directed-layout-algorithms - and the readme.md can be found in `algorithms/layout`.
 
 The dataset used is iOS app usage and this can be found in `algorithms/datasets/`  where a sample of subsets are located. This software produces the layouts created by these six algorithms using this data. These layouts are interactive and can be adapted to fit the purpose required through various command line arguments.
 
@@ -76,5 +76,5 @@ To ensure that all dependences have installed properly and the software is worki
 python3 algorithms/umap_layout 100 1000
 ```
 
-A layout should be produced in ~9s. If successful then everything has installed correctly.
+A layout should be produced in ~9-15s, depending on the hardware. If successful then everything has installed correctly.
 
