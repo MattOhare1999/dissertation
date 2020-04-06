@@ -72,8 +72,9 @@ See [manual.md](manual.md) for full documentation on how to use this software.
 To ensure that all dependences have installed properly and the software is working as it should, run the following command:
 
 ```bash
+cd algorithms
 # python3 umap_layout.py <num apps> <dataset size>
-python3 algorithms/umap_layout 100 1000
+python3 umap_layout 100 1000
 ```
 
 A layout should be produced in ~9-15s, depending on the hardware. If successful then everything has installed correctly.
