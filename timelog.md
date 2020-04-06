@@ -522,7 +522,7 @@
 
 ## 31 Mar 2020
 
-*5 hours* - Tidied up dissertation to finish draft
+*5 hours* - Tidied up dissertation to finish draft  
 *1 hour* - Started proof read
 
 ## 01 Apr 2020
@@ -542,6 +542,19 @@
 ## 04 Apr 2020
 
 *4 hours* - Sorted out repo and files, completed all documentation and requirements.txt  
-*1 hour* - Tested deployment through a VM  
+*2 hour* - Tested deployment through a VM  
 *1 hours* - Started presentation planning
+
+## 05 Apr 2020
+
+*5 hours* - Presentation planning and recording  
+*4 hours* - Some changes to the dissertation based on feedback  
+*2 hour* - Few code alterations
+
+## 06 Apr 2020
+
+*6 hours* - Some changes to the dissertation based on feedback  
+*2 hour* - Final tidy up of code and files  
+*0.5 hours* - Dissertation submission
+
 

@@ -1,7 +1,7 @@
 # Force Directed Layout Algorithms for Python by
 
 
-This package provides 3 force-directed layout algorithms implemented in Python and a brute force implementation, created by Iain Cattermole.
+This package provides 3 force-directed layout algorithms implemented in Python and a brute force implementation, created by Iain Cattermole with modifications by Matthew O'Hare.
 
 - [Chalmers' 1996 algorithm](https://ieeexplore.ieee.org/document/567787) is implemented in `spring_models.neighbour_sampling`
 - [Hybrid Layout algorithm](https://ieeexplore.ieee.org/document/1173161) is implemented in `spring_models.hybrid`
