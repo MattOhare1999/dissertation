@@ -84,7 +84,8 @@ spring_layout = fl.draw_spring_layout(dataset=app_usage,
                                       algorithm_highlights=True,
                                       high_dimensional=high_dimensional,
                                       show_progression=intermediate_steps,
-                                      clusters=clusters)
+                                      clusters=clusters,
+                                      target_node_speed=0.15)
 
 total = time.time() - start
 

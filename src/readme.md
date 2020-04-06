@@ -61,6 +61,8 @@ This will install all the necessary pre-requisites required to set up this proje
 * Packages: listed in 'requirements.txt'
 * Tested on Ubuntu 18.04
 
+A umap package is provided as `umap/plot.py` is only available on the development branch and is required in this project. As this development branch may not always be working as expected, a working package is provided. 
+
 ### Usage
 
 See [manual.md](manual.md) for full documentation on how to use this software.

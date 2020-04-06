@@ -20,7 +20,7 @@ class BaseSpringLayout(ABC):
                  distance_fn: Callable[[np.ndarray, np.ndarray],
                                        float] = euclidean,
                  iterations: int = 50,
-                 target_node_speed: float = 0.0,
+                 target_node_speed: float = 0,
                  enable_cache: bool = True) -> None:
         assert iterations >= 0, "iterations must be non-negative"
         assert dataset is not None or nodes is not None, "must provide either dataset or nodes"

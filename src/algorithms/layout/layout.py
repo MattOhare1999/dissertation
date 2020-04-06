@@ -2,6 +2,7 @@ from typing import Any, Callable, Dict, List, Optional
 
 import matplotlib
 import matplotlib.pyplot as plt
+import seaborn as sns
 import numpy as np
 import umap
 from sklearn.cluster import KMeans
@@ -13,6 +14,7 @@ from layout.metrics import LayoutMetrics
 from .spring_models import (BaseSpringLayout, Hybrid, NeighbourSampling, Node,
                             Pivot)
 from .draw import DrawLayout
+from .utils import mean
 
 
 def draw_spring_layout(dataset: np.ndarray,
@@ -85,15 +87,19 @@ def draw_spring_layout(dataset: np.ndarray,
     print("Runtime: ", metrics.get_run_time())
     print("Max Memory: ", metrics.get_max_memory())
 
-    # plot memory
-    # plt.figure()
-    # plt.plot(metrics.memory.values(), 'b-+')
+    # calculate average speed in 5 iterations
+    speeds = []
+    iters = []
+    for i in range(4, len(metrics.avg_node_speed), 5):
+        speeds.append(mean(metrics.avg_node_speed[i - 4:i]))
+        iters.append(i + 1)
 
     # plot average node speed
-    # plt.figure()
-    # plt.plot(metrics.avg_node_speed, 'b-+')
-    # plt.ylabel("Average Node Speed")
-    # plt.xlabel("Iterations")
+    plt.figure()
+    sns.lineplot(iters, speeds, marker='o')
+    plt.ylabel("Average Node Speed")
+    plt.xlabel("Number of Iterations")
+    plt.title("Average Node Speed per Iteration")
 
     # show faceted layout
     if show_progression:
@@ -124,7 +130,7 @@ def draw_spring_layout(dataset: np.ndarray,
     else:
         plt.figure(figsize=(16.0, 16.0))
         draw_layout = DrawLayout(dataset=dataset, spring_layout=spring_layout)
-        spring_layout.spring_layout()
+        spring_layout.spring_layout(return_after=None)
 
         if high_dimensional:
             point_colors = KMeans(n_clusters=clusters).fit_predict(dataset)

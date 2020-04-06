@@ -1,22 +1,22 @@
-# Force Directed Layout Algorithms for Python
+# Force Directed Layout Algorithms for Python by
 
-This package provides 3 force-directed layout algorithms implemented in Python and a brute force implementation.
 
-- [Chalmers' 1996 algorithm](https://ieeexplore.ieee.org/document/567787) is implemented in `algorithms.neighbour_sampling`
-- [Hybrid Layout algorithm](https://ieeexplore.ieee.org/document/1173161) is implemented in `algorithms.hybrid`
-- [Pivot Layout algorithm](https://ieeexplore.ieee.org/document/1249012) is implemented in `algorithms.pivot`
+This package provides 3 force-directed layout algorithms implemented in Python and a brute force implementation, created by Iain Cattermole.
+
+- [Chalmers' 1996 algorithm](https://ieeexplore.ieee.org/document/567787) is implemented in `spring_models.neighbour_sampling`
+- [Hybrid Layout algorithm](https://ieeexplore.ieee.org/document/1173161) is implemented in `spring_models.hybrid`
+- [Pivot Layout algorithm](https://ieeexplore.ieee.org/document/1249012) is implemented in `spring_models.pivot`
 
 ## Structure
 
 ```
 layout
-├── algorithms
+├── spring_models
 │   ├── base_spring_layout.py
 │   ├── hybrid.py
 │   ├── neighbour_sampling.py
 │   ├── node.py
 │   ├── pivot.py
-│   ├── spring_force.py
 │   └── __init__.py
 ├── distance.py
 ├── draw.py
@@ -50,8 +50,6 @@ layout = fl.draw_spring_layout(dataset=dataset, algorithm=fl.SpringForce)
 
 plt.show()
 ```
-
-More complex examples can be seen in the `examples/` folder.
 
 # Documentation
 
@@ -105,7 +103,6 @@ Create an instance of a spring layout algorithm without running it. Uses the sam
 
 ```
 from layout.algorithms import (BaseSpringLayout,
-                                    SpringForce,
                                     NeighbourSampling,
                                     Hybrid,
                                     Pivot)
